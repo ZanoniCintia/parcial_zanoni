@@ -27,7 +27,8 @@ int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBusc
 int orquesta_modificar(Orquesta array[], int sizeArray);                                //cambiar autor
 int orquesta_ordenarPorDobleCriterio(Orquesta array[],int size, int orderFirst, int orderSecond);                                  //cambiar autor
 int orquesta_listar(Orquesta array[], int size);                      //cambiar autor
-void orquesta_mock(Orquesta arrayAutor[], int size,int *contadorId);                      //cambiar autor
+void orquesta_mock(Orquesta arrayAutor[], int size,int *contadorId);
+int orquesta_tipo(Orquesta tipoOrquesta,char* tipos);                     //cambiar autor
 
 
 

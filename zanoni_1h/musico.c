@@ -252,26 +252,15 @@ int musicos_modificar(Musicos array[], int sizeArray)                           
             {       //copiar printf de alta
                 printf("\n Posicion: %d\n ID: %d\n nombre: %s\n apellido: %s\n edad: %d\n id orquesta : %d, \n id instrumento : %d",
                        posicion, array[posicion].idMusico,array[posicion].nombre,array[posicion].apellido,array[posicion].edad,array[posicion].idOrquesta,array[posicion].idInstrumento);
-                utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
+                utn_getChar("\nModificar: \nA-Edad \nB-id orquesta \nS:(salir)\ningrese opcion: ","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
+
                     case 'A':
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].idMusico);           //mensaje + cambiar campo varInt
-                        break;
-                    case 'B':
-                        utn_getName("\ningrese nombre: ","\nError",1,31,1,array[posicion].nombre);             //mensaje + cambiar campo varFloat
+                        utn_getUnsignedInt("\ningrese edad : ","\nerror",1,99,1,99,1,&array[posicion].edad); //mensaje + cambiar campo varFloat
                         break;
                     case 'C':
-                        utn_getName("\ningrese apellido : ","\nError",1,31,1,array[posicion].apellido);                      //mensaje + cambiar campo varString
-                        break;
-                    case 'D':
-                        utn_getUnsignedInt("\ningrese edad : ","\nerror",1,99,1,99,1,&array[posicion].edad);             //mensaje + cambiar campo varLongString
-                        break;
-                    case 'E':
-                        utn_getUnsignedInt("\ningrese id orquesta : ","\nerror",0,50,0,50,1,&array[posicion].idOrquesta);
-                        break;
-                    case 'F':
-                        utn_getUnsignedInt("\ningrese id de instrumento : ","\nerror",1,99,1,99,1,&array[posicion].idInstrumento);
+                        utn_getUnsignedInt("\ningrese id orquesta : ","\nerror",0,50,0,50,1,&array[posicion].idOrquesta);//mensaje + cambiar campo varString
                         break;
                     case 'S':
                         break;
@@ -368,7 +357,6 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
 {
     //*******************************************************************
     arrayMusicos[0].idMusico=*contadorIdMusico;
-    arrayMusicos[0].idMusico=3;
     arrayMusicos[0].isEmpty=0;
     strcpy(arrayMusicos[0].nombre,"joe");
     strcpy(arrayMusicos[0].apellido,"morello");
@@ -378,7 +366,6 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     *contadorIdMusico = *contadorIdMusico + 1;
 
     arrayMusicos[1].idMusico=*contadorIdMusico;
-    arrayMusicos[1].idMusico=3;
     arrayMusicos[1].isEmpty=0;
     strcpy(arrayMusicos[1].nombre,"gaston");
     strcpy(arrayMusicos[1].apellido,"picazo");
@@ -388,7 +375,6 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     *contadorIdMusico = *contadorIdMusico + 1;
 
     arrayMusicos[2].idMusico=*contadorIdMusico;
-    arrayMusicos[2].idMusico=3;
     arrayMusicos[2].isEmpty=0;
     strcpy(arrayMusicos[2].nombre,"bryanna");
     strcpy(arrayMusicos[2].apellido,"barrios");
@@ -399,7 +385,6 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
 
 
     arrayMusicos[3].idMusico=*contadorIdMusico;
-    arrayMusicos[3].idMusico=3;
     arrayMusicos[3].isEmpty=0;
     strcpy(arrayMusicos[3].nombre,"lolo");
     strcpy(arrayMusicos[3].apellido,"bello");

@@ -78,7 +78,7 @@ int instrumentos_alta(Instrumentos array[], int size, int* contadorID)          
                       //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
             utn_getTexto("\ningrese nombre de instrumento: ","\nError",1,TEXT_SIZE_INSTRUMENTOS,1,array[posicion].nombre);
-            utn_getUnsignedInt("\ningrese tipo: ","\nError",1,sizeof(int),1,3,1,&array[posicion].tipo); //mensaje + cambiar campo varString
+            utn_getSignedInt("\ningrese tipo: \n1)cuerdas\n2)vientos/madera\n3)vientos/metal\n4)percusion\ningrese opcion:","\nError",1,sizeof(int),1,3,1,&array[posicion].tipo); //mensaje + cambiar campo varString
           //  utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
             printf("\n Posicion: %d\n ID: %d\n nombre: %s\n tipo %d\n ",
                    posicion, array[posicion].idInstrumentos,array[posicion].nombre,array[posicion].tipo);
@@ -136,6 +136,30 @@ int instrumentos_baja(Instrumentos array[], int sizeArray)                      
       ;                                               //cambiar campo varLongString
             retorno=0;
         }
+    }
+    return retorno;
+}
+/** \brief Lista los elementos de un array
+* \param array instrumentos
+* \param size int Tamaño del array
+* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
+*
+*/
+int instrumentos_listar(Instrumentos array[], int size)                      //cambiar autor
+{
+    int retorno=-1;
+    int i;
+    if(array!=NULL && size>=0)
+    {
+        for(i=0;i<size;i++)
+        {
+            if(array[i].isEmpty==1)
+                continue;
+            else
+                printf("\n ID : %d\n nombre : %s \ntipo : %d ",
+                       array[i].idInstrumentos,array[i].nombre,array[i].tipo);      //cambiar todos
+        }
+        retorno=0;
     }
     return retorno;
 }

@@ -134,6 +134,7 @@ int isValidNumber(char* stringRecibido)
 {
     int retorno=1;  // para las funciones isValid arranco con verdadero y cambio cuando encuentro un error
     int i;
+
     for(i=0;stringRecibido[i]!='\0';i++)
     {
         if(stringRecibido[i]<'0' || stringRecibido[i]>'9')
@@ -142,6 +143,7 @@ int isValidNumber(char* stringRecibido)
             break;
         }
     }
+
     return retorno;
 }
 //-------------------------------------------------

@@ -40,40 +40,32 @@ int main()
         {
             case 1:
                 do{
-                utn_getUnsignedInt("\n\n-------MENU ORQUESTAS-------\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar \n5) Ordenar\n6)Salir\nIngrese la opcion: ",                   //cambiar
+                utn_getUnsignedInt("\n\n-------MENU ORQUESTAS-------\n\n1) Alta \n2) Baja\n3)Listar \n4)Salir\nIngrese la opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
                 switch(opcion)
                 {
                 case 1: //Alta
-                    orquesta_alta(arrayOrquesta,QTY_ARRAY_ORQUESTA,&contadorIdOrquesta);                   //cambiar
+                    orquesta_alta(arrayOrquesta,QTY_ARRAY_ORQUESTA,&contadorIdOrquesta);
+                    printf("\nAlta exitosa, id creado es :%d",contadorIdOrquesta);                   //cambiar
                     break;
 
                 case 2: //Modificar
-                    orquesta_modificar(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
+                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
+                    orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA);                 //cambiar
                     break;
 
                 case 3: //Baja
-                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
-                    orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
+                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);                //cambiar
                     break;
-
-                case 4://Listar
-                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
-                    break;
-
-                case 5://Ordenar
-                    orquesta_ordenarPorDobleCriterio(arrayOrquesta,QTY_ARRAY_ORQUESTA,SORT_UP,SORT_DOWN);
-                    orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
-                    break;
-                case 6:
+                case 4:
                     break;
                 }
-                }while(opcion!=6);
+                }while(opcion!=4);
             break;
 
             case 2:
                do{
-                    utn_getUnsignedInt("\n\n-------MENU MUSICOS-------\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar \n5) Ordenar\n6)Salir\nIngrese su opcion: ",                   //cambiar
+                    utn_getUnsignedInt("\n\n-------MENU MUSICOS-------\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar\n5)Salir\nIngrese su opcion: ",                   //cambiar
                                        "\nError",1,sizeof(int),1,6,1,&opcion);
                     switch(opcion)
                     {
@@ -82,30 +74,29 @@ int main()
                         break;
 
                     case 2: //Modificar
+                        musicos_listar(arrayMusicos,QTY_ARRAY_MUSICO);
                         musicos_modificar(arrayMusicos,QTY_ARRAY_MUSICO);                   //cambiar
                         break;
 
                     case 3: //Baja
-                        musicos_baja(arrayMusicos,QTY_ARRAY_MUSICO);                   //cambiar
+                        musicos_listar(arrayMusicos,QTY_ARRAY_MUSICO);
+                        musicos_baja(arrayMusicos,QTY_ARRAY_MUSICO);
+                        printf("la baja fue exitosa");                  //cambiar
                         break;
 
                     case 4://Listar
                         musicos_listar(arrayMusicos,QTY_ARRAY_MUSICO);                   //cambiar
                         break;
 
-                    case 5://Ordenar
-                        musicos_ordenarPorDobleCriterio(arrayMusicos,QTY_ARRAY_MUSICO,SORT_UP,SORT_DOWN);
-                        musicos_listar(arrayMusicos,QTY_ARRAY_MUSICO);                   //cambiar
-                        break;
-                    case 6:
+                    case 5:
                     break;
                     }
-                }while(opcion!=6);
+                }while(opcion!=5);
             break;
 
             case 3:
                 do{
-                 utn_getUnsignedInt("\n\n-------MENU INSTRUMENTOS-------\n\n1) Alta \n2) Modificar \n3) Baja \n6)Salir\nIngrese su opcion: ",                   //cambiar
+                 utn_getUnsignedInt("\n\n-------MENU INSTRUMENTOS-------\n\n1)Alta \n2)baja \n3)listar \n4)Salir\nIngrese su opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
                 switch(opcion)
                 {
@@ -116,12 +107,13 @@ int main()
                 case 2: //Modificar
                     instrumentos_baja(arrayInstrumentos,QTY_ARRAY_INSTRUMENTOS);                   //cambiar
                     break;
-
-
+                case 3:
+                    instrumentos_listar(arrayInstrumentos, QTY_ARRAY_INSTRUMENTOS);
+                    break;
                 }
-                case 6:
+                case 4:
                 break;
-                }while(opcion!=6);
+                }while(opcion!=4);
             break;
  }
         }while(primeraOpcion!=5);
