@@ -124,6 +124,7 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
 {
     int retorno=-1;
     int posicion;
+    char tipo[30];
     if(array!=NULL && size>0 && contadorID!=NULL)
     {
         if(orquesta_buscarEmpty(array,size,&posicion)==-1)
@@ -139,7 +140,8 @@ int orquesta_alta(Orquesta array[], int size, int* contadorID)
             utn_getTexto("\ningrese nombre de la orquesta: ","\nError",1,TEXT_SIZE_ORQUESTA,1,array[posicion].nombre);                      //mensaje + cambiar campo nombre
             utn_getTexto("\ningrese lugar : ","\nError",1,TEXT_SIZE_ORQUESTA,1,array[posicion].lugar);
             utn_getUnsignedInt("\ningrese tipo:\n1 sinfonica : \n2 filarmonica : \n3 camara : ","\nerror, 1/2/3",1,3,1,3,1,&array[posicion].tipo);
-            printf("\nID: %d\n nombre : %s\n lugar : %s \n tipo : %d", array[posicion].idOrquesta,array[posicion].nombre,array[posicion].lugar,array[posicion].tipo);
+            orquesta_tipo(array[posicion],tipo);
+            printf("\nID: %d\n nombre : %s\n lugar : %s \n tipo : %s", array[posicion].idOrquesta,array[posicion].nombre,array[posicion].lugar,tipo);
             retorno=0;
         }
     }
@@ -175,7 +177,7 @@ int orquesta_tipo(Orquesta tipoOrquesta,char* tipos)
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int orquesta_baja(Orquesta array[], int sizeArray)                                      //cambiar autor
+int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
 {
     int retorno=-1;
     int posicion;
@@ -189,6 +191,7 @@ int orquesta_baja(Orquesta array[], int sizeArray)                              
         }
         else
         {
+            musicos_bajaPorOrquesta(arrayMusico,sizeArrayMusico,id);
             array[posicion].isEmpty=1;
             array[posicion].idOrquesta=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
             strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
@@ -351,6 +354,7 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
 {
     int retorno=-1;
     int i;
+    char tipo[30];
     if(array!=NULL && size>=0)
     {
         for(i=0;i<size;i++)
@@ -358,9 +362,9 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
             if(array[i].isEmpty==1)
                 continue;
             else{
-
-                printf("\n ID: %d\n nombre: %s\n lugar : %s \ntipo : %d ",
-                      array[i].idOrquesta,array[i].nombre,array[i].lugar,array[i].tipo);
+                orquesta_tipo(array[i],tipo);
+                printf("\n ID: %d\n nombre: %s\n lugar : %s \ntipo : %s ",
+                      array[i].idOrquesta,array[i].nombre,array[i].lugar,tipo);
                }              //cambiar todos
         }
         retorno=0;

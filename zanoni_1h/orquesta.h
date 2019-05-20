@@ -1,7 +1,7 @@
 #ifndef ORQUESTA_H_INCLUDED
 #define ORQUESTA_H_INCLUDED
 #define TEXT_SIZE_ORQUESTA 51
-
+#include "musico.h"
 typedef struct
 {
     int idOrquesta;
@@ -22,7 +22,7 @@ int orquesta_buscarID(Orquesta array[], int size, int valorBuscado, int* posicio
 int orquesta_buscarInt(Orquesta array[], int size, int valorBuscado, int* posicion);                    //cambiar autor
 int orquesta_buscarString(Orquesta array[], int size, char* valorBuscado, int* indice);                    //cambiar autor
 int orquesta_alta(Orquesta array[], int size, int* contadorID);                          //cambiar autor
-int orquesta_baja(Orquesta array[], int sizeArray);                                      //cambiar autor
+int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico);                                      //cambiar autor
 int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBuscado);
 int orquesta_modificar(Orquesta array[], int sizeArray);                                //cambiar autor
 int orquesta_ordenarPorDobleCriterio(Orquesta array[],int size, int orderFirst, int orderSecond);                                  //cambiar autor

@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include "utn.h"
 #include "musico.h"
-#include "instrumentos.h" //cambiar por nombre entidad
+#include "instrumentos.h"
+#include "orquesta.h" //cambiar por nombre entidad
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -122,7 +123,7 @@ int musicos_buscarNombreyApellido ( Musicos array[], int size, char* valorBuscad
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no hay posiciones vacias] - (0) si se agrega un nuevo elemento exitosamente
 *
 */
-int musicos_alta(Musicos array[], int size, int* contadorID)                          //cambiar socios
+int musicos_alta(Musicos array[], int size,Orquesta* arrayOrquesta,int lenOrquesta,Instrumentos* arrayInstrumento,int lenInstrumento, int* contadorID)                          //cambiar socios
 {
     int retorno=-1;
     int posicion;
@@ -137,12 +138,13 @@ int musicos_alta(Musicos array[], int size, int* contadorID)                    
             (*contadorID)++;
             array[posicion].idMusico=*contadorID;                                                       //campo ID
             array[posicion].isEmpty=0;
-            //utn_getUnsignedInt("\ningrese id ","\nError",1,sizeof(int),1,10,1,&array[posicion].idSocio);           //mensaje + cambiar campo varInt
-    //mensaje + cambiar campo varFloat
+
             utn_getName("\ningrese nombre: ","\nError",1,TEXT_SIZE_MUSICO,1,array[posicion].nombre);
             utn_getName("\ningrese apellido: ","\nError",1,TEXT_SIZE_MUSICO,1,array[posicion].apellido);                    //mensaje + cambiar campo varString
             utn_getUnsignedInt("\n ingrese edad : ","\nError",1,99,1,99,1,&array[posicion].edad);
+            orquesta_listar(arrayOrquesta,lenOrquesta);
             utn_getUnsignedInt("\n ingrese id orquesta : ","\nError",0,50,0,50,1,&array[posicion].idOrquesta);
+            instrumentos_listar(arrayInstrumento,lenInstrumento);
             utn_getUnsignedInt("\n ingrese id instrumento : ","\nError",0,20,0,20,1,&array[posicion].idInstrumento);
                           //mensaje + cambiar campo varLongString
             printf("\n Posicion: %d\n ID: %d\n nombre : %s\n apellido: %s\n edad : %d\n id orquesta: %d \n id instrumento: %d",
@@ -187,7 +189,28 @@ int musicos_baja(Musicos array[], int sizeArray)                                
     }
     return retorno;
 }
+int musicos_bajaPorOrquesta(Musicos array[],int sizeArray,int idOrquesta)
+{
+    int i;
+    for(i=0;i<sizeArray;i++)
+    {
+        if(array[i].idOrquesta==idOrquesta)
+        {
+            array[i].isEmpty=1;
+            array[i].idMusico=-1;
+            strcpy(array[i].nombre,"");
+            strcpy(array[i].apellido,"");
+            array[i].edad=0;
+            array[i].idOrquesta=-1;
+            array[i].idInstrumento=-1;
 
+
+        }
+    }
+
+return 0;
+
+}
 //Baja valor repetido
 /** \brief Borra todos los elemento del array que contengan el valor buscado
 * \param array socios Array de socios

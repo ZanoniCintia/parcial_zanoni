@@ -36,12 +36,14 @@ int main()
     do
     {
         utn_getUnsignedInt("\n1-Menu orquesta\n2-Menu musicos \n3-Menu instrumentos\n5-Salir\nIngrese su opcion: ","\nOpcion Invalida.",1,sizeof(int),1,5,1,&primeraOpcion);
+        system("clear");
         switch(primeraOpcion)
         {
             case 1:
                 do{
                 utn_getUnsignedInt("\n\n-------MENU ORQUESTAS-------\n\n1) Alta \n2) Baja\n3)Listar \n4)Salir\nIngrese la opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
+                system("clear");
                 switch(opcion)
                 {
                 case 1: //Alta
@@ -51,7 +53,7 @@ int main()
 
                 case 2: //Modificar
                     orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
-                    orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA);                 //cambiar
+                    orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);                 //cambiar
                     break;
 
                 case 3: //Baja
@@ -67,10 +69,11 @@ int main()
                do{
                     utn_getUnsignedInt("\n\n-------MENU MUSICOS-------\n\n1) Alta \n2) Modificar \n3) Baja \n4) Listar\n5)Salir\nIngrese su opcion: ",                   //cambiar
                                        "\nError",1,sizeof(int),1,6,1,&opcion);
+                    system("clear");
                     switch(opcion)
                     {
                     case 1: //Alta
-                        musicos_alta(arrayMusicos,QTY_ARRAY_MUSICO,&contadorIdMusico);                   //cambiar
+                        musicos_alta(arrayMusicos,QTY_ARRAY_MUSICO,arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayInstrumentos,QTY_ARRAY_INSTRUMENTOS,&contadorIdMusico);                   //cambiar
                         break;
 
                     case 2: //Modificar
@@ -98,6 +101,7 @@ int main()
                 do{
                  utn_getUnsignedInt("\n\n-------MENU INSTRUMENTOS-------\n\n1)Alta \n2)baja \n3)listar \n4)Salir\nIngrese su opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
+                system("clear");
                 switch(opcion)
                 {
                 case 1: //Alta
