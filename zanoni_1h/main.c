@@ -16,21 +16,20 @@ int main()
 {
     int opcion;
     int contadorIdOrquesta=0;
-    Orquesta arrayOrquesta[QTY_ARRAY_ORQUESTA];                   //cambiar
-    orquesta_Inicializar(arrayOrquesta,QTY_ARRAY_ORQUESTA);                   //cambiar
+    Orquesta arrayOrquesta[QTY_ARRAY_ORQUESTA];
+    orquesta_Inicializar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
     orquesta_mock(arrayOrquesta, QTY_ARRAY_ORQUESTA, &contadorIdOrquesta) ;
 
     int contadorIdMusico=0;
-    Musicos arrayMusicos[QTY_ARRAY_MUSICO];                   //cambiar
-    musicos_Inicializar(arrayMusicos,QTY_ARRAY_MUSICO);                   //cambiar
+    Musicos arrayMusicos[QTY_ARRAY_MUSICO];
+    musicos_Inicializar(arrayMusicos,QTY_ARRAY_MUSICO);
     musicos_mock(arrayMusicos, QTY_ARRAY_MUSICO, &contadorIdMusico);
 
     int contadorIdInstrumentos=0;
-    Instrumentos arrayInstrumentos[QTY_ARRAY_INSTRUMENTOS];                   //cambiar
-    instrumentos_Inicializar(arrayInstrumentos,QTY_ARRAY_INSTRUMENTOS);                   //cambiar
-    instrumentos_mock(arrayInstrumentos, QTY_ARRAY_INSTRUMENTOS, &contadorIdInstrumentos) ;                     //cambiar fantasma
+    Instrumentos arrayInstrumentos[QTY_ARRAY_INSTRUMENTOS];
+    instrumentos_Inicializar(arrayInstrumentos,QTY_ARRAY_INSTRUMENTOS);
+    instrumentos_mock(arrayInstrumentos, QTY_ARRAY_INSTRUMENTOS, &contadorIdInstrumentos) ;
 
-                        //cambiar fantasma                  //cambiar fantasma
 
     int primeraOpcion;
     do
@@ -53,7 +52,7 @@ int main()
 
                 case 2: //Modificar
                     orquesta_listar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
-                    orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);                 //cambiar
+                    musico_Y_orquesta_baja(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);
                     break;
 
                 case 3: //Baja

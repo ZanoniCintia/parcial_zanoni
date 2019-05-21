@@ -177,7 +177,7 @@ int orquesta_tipo(Orquesta tipoOrquesta,char* tipos)
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
 *
 */
-int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
+/*int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
 {
     int retorno=-1;
     int posicion;
@@ -202,7 +202,7 @@ int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int size
         }
     }
     return retorno;
-}
+}*/
 
 //Baja valor repetido
 /** \brief Borra todos los elemento del array que contengan el valor buscado

@@ -419,3 +419,30 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     //*contadorId = *contadorId + 1;
 
 }
+int musico_Y_orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
+{
+    int retorno=-1;
+    int posicion;
+    int id;
+    if(array!=NULL && sizeArray>0)
+    {
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
+        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        {
+            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+        }
+        else
+        {
+            musicos_bajaPorOrquesta(arrayMusico,sizeArrayMusico,id);
+            array[posicion].isEmpty=1;
+            array[posicion].idOrquesta=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
+            strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
+            strcpy(array[posicion].lugar,"");
+            array[posicion].tipo='v';
+                                                           //cambiar campo apellido
+            retorno=0;
+        }
+    }
+    return retorno;
+}
+
