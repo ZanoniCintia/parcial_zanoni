@@ -385,7 +385,7 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     strcpy(arrayMusicos[0].apellido,"morello");
     arrayMusicos[0].edad=25;
     arrayMusicos[0].idOrquesta=1;
-    arrayMusicos[0].idInstrumento=2;
+    arrayMusicos[0].idInstrumento=1;
     *contadorIdMusico = *contadorIdMusico + 1;
 
     arrayMusicos[1].idMusico=*contadorIdMusico;
@@ -403,7 +403,7 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     strcpy(arrayMusicos[2].apellido,"barrios");
     arrayMusicos[2].edad=21;
     arrayMusicos[2].idOrquesta=2;
-    arrayMusicos[2].idInstrumento=2;
+    arrayMusicos[2].idInstrumento=4;
     *contadorIdMusico= *contadorIdMusico + 1;
 
 
@@ -413,7 +413,7 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     strcpy(arrayMusicos[3].apellido,"bello");
     arrayMusicos[3].edad=25;
     arrayMusicos[3].idOrquesta=3;
-    arrayMusicos[3].idInstrumento=2;
+    arrayMusicos[3].idInstrumento=3;
 
 
     //*contadorId = *contadorId + 1;

@@ -96,11 +96,12 @@ int orquesta_buscarString(Orquesta array[], int size, char* valorBuscado, int* i
     int i;
     if(array!=NULL && size>=0)
     {
+
         for(i=0;i<size;i++)
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(strcmp(array[i].nombre,valorBuscado)==0)                                        //cambiar campo nombre
+            else if(strcmp(array[i].lugar,valorBuscado)==0)                                        //cambiar campo nombre
             {
                 *indice=i;
                 retorno=0;
@@ -362,6 +363,7 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
             if(array[i].isEmpty==1)
                 continue;
             else{
+
                 orquesta_tipo(array[i],tipo);
                 printf("\n ID: %d\n nombre: %s\n lugar : %s \ntipo : %s ",
                       array[i].idOrquesta,array[i].nombre,array[i].lugar,tipo);

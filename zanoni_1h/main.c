@@ -16,6 +16,7 @@ int main()
 {
     int opcion;
     int contadorIdOrquesta=0;
+    //Orquesta tipo;
     Orquesta arrayOrquesta[QTY_ARRAY_ORQUESTA];
     orquesta_Inicializar(arrayOrquesta,QTY_ARRAY_ORQUESTA);
     orquesta_mock(arrayOrquesta, QTY_ARRAY_ORQUESTA, &contadorIdOrquesta) ;
@@ -125,24 +126,28 @@ int main()
 
             case 4:
                 do{
-                utn_getUnsignedInt("\n\n-------MENU INFORMES-------\n\n1)Promedio edades \n2) Baja\n3)Listar \n4)Salir\nIngrese la opcion: ",                   //cambiar
+                utn_getUnsignedInt("\n\n-------MENU INFORMES-------\n\n1)Listar orquesta por lugar\n2)Musicos menores a 25 años\n3)Promedio de instrumentos por orquesta\n4)Musicos que no tocan vientos\n5)Salir\nIngrese la opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
                 system("clear");
                 switch(opcion)
                 {
                 case 1:
-                    musicos_calcularPromedioEdades(arrayMusicos,QTY_ARRAY_MUSICO);
+                    orquesta_listarLugar(arrayOrquesta, QTY_ARRAY_ORQUESTA);
                     break;
                 case 2: //Modificar
-                    musicos_cantidadDeMusicosEnCadaOrquesta(arrayMusicos,arrayOrquesta,QTY_ARRAY_MUSICO);
+                    musicos_mostrarArray(arrayMusicos,QTY_ARRAY_MUSICO);
                     break;
+                case 3:
+                    orquesta_calcularPromedioInstrumentos(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayInstrumentos,QTY_ARRAY_INSTRUMENTOS );
 
-                case 3: //Baja
                      break;
                 case 4:
+                    musicos_listarPorInstrumentos(arrayMusicos, QTY_ARRAY_MUSICO);
+                    break;
+                 case 5:
                     break;
                 }
-                }while(opcion!=4);
+                }while(opcion!=5);
             break;
         }
         }while(primeraOpcion!=6);
