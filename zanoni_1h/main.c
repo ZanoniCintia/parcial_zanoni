@@ -34,7 +34,7 @@ int main()
     int primeraOpcion;
     do
     {
-        utn_getUnsignedInt("\n1-Menu orquesta\n2-Menu musicos \n3-Menu instrumentos\n5-Salir\nIngrese su opcion: ","\nOpcion Invalida.",1,sizeof(int),1,5,1,&primeraOpcion);
+        utn_getUnsignedInt("\n1-Menu orquesta\n2-Menu musicos \n3-Menu instrumentos\n4-Informes\n5-Salir\nIngrese su opcion: ","\nOpcion Invalida.",1,sizeof(int),1,6,1,&primeraOpcion);
         system("clear");
         switch(primeraOpcion)
         {
@@ -91,11 +91,12 @@ int main()
                         break;
 
                     case 5:
-                    musicos_calcularPromedioEdades(arrayMusicos,QTY_ARRAY_MUSICO);
+
                         break;
                     }
                 }while(opcion!=5);
             break;
+
 
             case 3:
                 do{
@@ -114,15 +115,37 @@ int main()
                 case 3:
                     instrumentos_listar(arrayInstrumentos, QTY_ARRAY_INSTRUMENTOS);
                     break;
-                }
                 case 4:
                 break;
+                }
+
                 }while(opcion!=4);
             break;
 
 
- }
-        }while(primeraOpcion!=5);
+            case 4:
+                do{
+                utn_getUnsignedInt("\n\n-------MENU INFORMES-------\n\n1)Promedio edades \n2) Baja\n3)Listar \n4)Salir\nIngrese la opcion: ",                   //cambiar
+                                   "\nError",1,sizeof(int),1,6,1,&opcion);
+                system("clear");
+                switch(opcion)
+                {
+                case 1:
+                    musicos_calcularPromedioEdades(arrayMusicos,QTY_ARRAY_MUSICO);
+                    break;
+                case 2: //Modificar
+                    musicos_cantidadDeMusicosEnCadaOrquesta(arrayMusicos,arrayOrquesta,QTY_ARRAY_MUSICO);
+                    break;
+
+                case 3: //Baja
+                     break;
+                case 4:
+                    break;
+                }
+                }while(opcion!=4);
+            break;
+        }
+        }while(primeraOpcion!=6);
     return 0;
 }
 

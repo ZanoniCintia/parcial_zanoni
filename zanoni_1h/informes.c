@@ -108,7 +108,7 @@ int musicos_calcularPromedioEdades(Musicos *arrayMusicos,int len)
     }
     printf("la cantidad de musicos con edades mayores al promedio es : %d\n",acumuladorEdadesEncimaPromedio);
 
-    printf("la cantidad de musicos con edades menores al promedio es : %d\n",acumuladorEdadesEncimaPromedio);
+    printf("la cantidad de musicos con edades menores al promedio es : %d\n",acumuladorEdadesDebajoPromedio);
     return retorno;
 }
 
@@ -132,12 +132,23 @@ int musicos_mostrarArray(Musicos *arrayMusicos, int len)
     return 0;
 }
 
-/*int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Instrumentos *arrayInstrumentos,int len)
+int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arrayOrquesta,int len)
 {
     int i;
+    int acumuladorMusicos=0;
+    //int cantidad=0;
+    int musicos;
+    int retorno = -1;
+    for(i=0;i<len;i++)
+    {
+       if(arrayOrquesta[i].isEmpty==0)
+       {
+            acumuladorMusicos+=arrayMusicos[i].idMusico;
 
-
-
-
-
-}*/
+       }
+       retorno = 0;
+    }
+    musicos=acumuladorMusicos;
+    printf("la cantidad de musicos por orquesta es: %d\n",musicos);
+ return retorno;
+}

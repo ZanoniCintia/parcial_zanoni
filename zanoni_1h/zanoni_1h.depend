@@ -45,7 +45,7 @@
 	"utn.h"
 	"instrumentos.h"
 
-1558463482 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/instrumentos.c
+1558463574 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/instrumentos.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -56,7 +56,7 @@
 
 1558461695 /home/cintia/zanoni/parcial_zanoni/zanoni_1h/instrumentos.h
 
-1558457934 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/main.c
+1558467201 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -95,7 +95,7 @@
 	<ctype.h>
 	"utn.h"
 
-1558463367 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.c
+1558467411 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -104,5 +104,5 @@
 	"instrumentos.h"
 	"orquesta.h"
 
-1558457210 /home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.h
+1558467201 /home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.h
 
