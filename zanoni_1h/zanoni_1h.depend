@@ -45,7 +45,7 @@
 	"utn.h"
 	"instrumentos.h"
 
-1558462824 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/instrumentos.c
+1558463482 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/instrumentos.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -95,7 +95,7 @@
 	<ctype.h>
 	"utn.h"
 
-1558462037 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.c
+1558463367 source:/home/cintia/zanoni/parcial_zanoni/zanoni_1h/informes.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

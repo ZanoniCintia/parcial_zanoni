@@ -132,8 +132,9 @@ int musicos_mostrarArray(Musicos *arrayMusicos, int len)
     return 0;
 }
 
-/*int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,int len)
+/*int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Instrumentos *arrayInstrumentos,int len)
 {
+    int i;
 
 
 

@@ -174,15 +174,18 @@ int instrumentos_listar(Instrumentos array[], int size)                      //c
 {
     int retorno=-1;
     int i;
+    char tipo[30];
     if(array!=NULL && size>=0)
     {
         for(i=0;i<size;i++)
         {
             if(array[i].isEmpty==1)
                 continue;
-            else
-                printf("\n ID : %d\n nombre : %s \ntipo : %d ",
-                       array[i].idInstrumentos,array[i].nombre,array[i].tipo);      //cambiar todos
+            else{
+                instrumentos_tipo(array[i],tipo);
+                printf("\n ID : %d\n nombre : %s \ntipo : %s ",
+                       array[i].idInstrumentos,array[i].nombre,tipo);
+            }//cambiar todos
         }
         retorno=0;
     }
