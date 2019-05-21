@@ -5,7 +5,7 @@
 #include "orquesta.h"  //cambiar por nombre entidad
 #include "musico.h"
 #include "instrumentos.h"
-
+#include "informes.h"
 #define QTY_ARRAY_ORQUESTA 51
 #define QTY_ARRAY_MUSICO 51
 #define QTY_ARRAY_INSTRUMENTOS 51
@@ -91,7 +91,8 @@ int main()
                         break;
 
                     case 5:
-                    break;
+                    musicos_calcularPromedioEdades(arrayMusicos,QTY_ARRAY_MUSICO);
+                        break;
                     }
                 }while(opcion!=5);
             break;
@@ -118,6 +119,8 @@ int main()
                 break;
                 }while(opcion!=4);
             break;
+
+
  }
         }while(primeraOpcion!=5);
     return 0;

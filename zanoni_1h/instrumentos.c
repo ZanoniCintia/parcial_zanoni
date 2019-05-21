@@ -64,6 +64,7 @@ int instrumentos_alta(Instrumentos array[], int size, int* contadorID)          
 {
     int retorno=-1;
     int posicion;
+    char tipo[30];
     if(array!=NULL && size>0 && contadorID!=NULL)
     {
         if(instrumentos_buscarEmpty(array,size,&posicion)==-1)                          //cambiar libros
@@ -78,12 +79,36 @@ int instrumentos_alta(Instrumentos array[], int size, int* contadorID)          
                       //mensaje + cambiar campo varInt
             //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
             utn_getTexto("\ningrese nombre de instrumento: ","\nError",1,TEXT_SIZE_INSTRUMENTOS,1,array[posicion].nombre);
-            utn_getSignedInt("\ningrese tipo: \n1)cuerdas\n2)vientos/madera\n3)vientos/metal\n4)percusion\ningrese opcion:","\nError",1,sizeof(int),1,3,1,&array[posicion].tipo); //mensaje + cambiar campo varString
-          //  utn_getTexto("\ngetTexto: ","\nError",1,TEXT_SIZE,1,array[posicion].varLongString);                 //mensaje + cambiar campo varLongString
-            printf("\n Posicion: %d\n ID: %d\n nombre: %s\n tipo %d\n ",
-                   posicion, array[posicion].idInstrumentos,array[posicion].nombre,array[posicion].tipo);
+            utn_getUnsignedInt("\ningrese tipo:\n1 Cuerdas : \n2 Viento-Madera : \n3 Viento-Metal : \n4 Percusion ","\nerror, 1/2/3/4",1,4,1,4,1,&array[posicion].tipo); //mensaje + cambiar campo varString
+            instrumentos_tipo(array[posicion],tipo);
+            printf("\n ID: %d\n nombre: %s\n tipo %s\n ",
+                  array[posicion].idInstrumentos,array[posicion].nombre,tipo);
             retorno=0;
         }
+    }
+    return retorno;
+}
+int instrumentos_tipo(Instrumentos tipoInstrumentos,char* tipos)
+{
+    int retorno=0;
+    if(tipos!=NULL)
+    {
+        switch(tipoInstrumentos.tipo)
+        {
+            case 1:
+                strcpy((char*)tipos,"Cuerdas");
+                break;
+            case 2:
+                strcpy((char*)tipos,"Viento-Madera");
+                break;
+            case 3:
+                strcpy((char*)tipos,"Viento-Metal");
+                break;
+             case 4:
+                strcpy((char*)tipos,"Percusion");
+                break;
+            }
+            return 1;
     }
     return retorno;
 }

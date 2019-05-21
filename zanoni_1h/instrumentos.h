@@ -18,7 +18,7 @@ int instrumentos_buscarID(Instrumentos array[], int size, int valorBuscado, int*
 int instrumentos_alta(Instrumentos array[], int size, int* contadorID);                          //cambiar libros
 int instrumentos_baja(Instrumentos array[], int sizeArray);
 int instrumentos_listar(Instrumentos array[], int size);
-
+int instrumentos_tipo(Instrumentos tipoInstrumentos,char* tipos);
 void instrumentos_mock(Instrumentos arrayLibros[], int size,int *contadorId);
 
 #endif // INSTRUMENTOS_H_INCLUDED
