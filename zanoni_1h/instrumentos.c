@@ -194,32 +194,39 @@ int instrumentos_listar(Instrumentos array[], int size)                      //c
 void instrumentos_mock(Instrumentos arrayInstrumentos[], int size,int *contadorId)                      //cambiar libros
 {
     //*******************************************************************
-    arrayInstrumentos[0].idInstrumentos=*contadorId;
-    arrayInstrumentos[0].isEmpty=0;
-    arrayInstrumentos[0].idInstrumentos=0;
-    strcpy(arrayInstrumentos[0].nombre,"piano");
-    arrayInstrumentos[0].tipo=4;
-    *contadorId=*contadorId + 1;
-
     arrayInstrumentos[1].idInstrumentos=*contadorId;
     arrayInstrumentos[1].isEmpty=0;
     arrayInstrumentos[1].idInstrumentos=1;
-    strcpy(arrayInstrumentos[1].nombre,"guitarra");
-    arrayInstrumentos[1].tipo=3;
+    strcpy(arrayInstrumentos[1].nombre,"piano");
+    arrayInstrumentos[1].tipo=1;
     *contadorId=*contadorId + 1;
 
     arrayInstrumentos[2].idInstrumentos=*contadorId;
     arrayInstrumentos[2].isEmpty=0;
     arrayInstrumentos[2].idInstrumentos=2;
-    strcpy(arrayInstrumentos[2].nombre,"baj0");
+    strcpy(arrayInstrumentos[2].nombre,"guitarra");
     arrayInstrumentos[2].tipo=2;
     *contadorId=*contadorId + 1;
 
     arrayInstrumentos[3].idInstrumentos=*contadorId;
     arrayInstrumentos[3].isEmpty=0;
     arrayInstrumentos[3].idInstrumentos=3;
-    strcpy(arrayInstrumentos[3].nombre,"bateria");
-    arrayInstrumentos[3].tipo=4;
+    strcpy(arrayInstrumentos[3].nombre,"baj0");
+    arrayInstrumentos[3].tipo=2;
+    *contadorId=*contadorId + 1;
+
+    arrayInstrumentos[4].idInstrumentos=*contadorId;
+    arrayInstrumentos[4].isEmpty=0;
+    arrayInstrumentos[4].idInstrumentos=4;
+    strcpy(arrayInstrumentos[4].nombre,"baj0");
+    arrayInstrumentos[4].tipo=3;
+    *contadorId=*contadorId + 1;
+
+    arrayInstrumentos[5].idInstrumentos=*contadorId;
+    arrayInstrumentos[5].isEmpty=0;
+    arrayInstrumentos[5].idInstrumentos=5;
+    strcpy(arrayInstrumentos[5].nombre,"bateria");
+    arrayInstrumentos[5].tipo=4;
 
     //contadorId++;
 }
