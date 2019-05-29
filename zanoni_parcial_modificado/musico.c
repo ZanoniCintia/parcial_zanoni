@@ -297,6 +297,42 @@ int musicos_modificar(Musicos array[], int sizeArray)                           
     return retorno;
 }
 
+
+int musicos_CantidadPorOrquesta(Musicos array[],int size, int IdOrquesta){
+    int cantidad=0;
+    int i;
+
+        for(i=0;i<size;i++){
+            if (!array[i].isEmpty && array[i].idOrquesta == IdOrquesta){
+                    cantidad += 1;
+                }
+        }
+    return cantidad;
+}
+
+int musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos IArray[], int Isize){
+
+    int i;
+    int j;
+    int idOrquesta;
+
+        utn_getUnsignedInt("Ingrese id de orquesta:","Error",0,10,0,10,1,idOrquesta);
+
+        for(i=0;i<Msize;i++){
+            if (!Marray[i].isEmpty && Marray[i].idOrquesta == IdOrquesta){
+                 for(j=0;j<Isize;j++){
+                    if(!IArray[j].isEmpty && IArray.idInstrumentos == Marray[i].idInstrumento){
+                        printf("Instrumento : %s del tipo %d y lo toca el musico id %d llamado %s %s",IArray[j].nombre,IArray[j].tipo,Marray[i].apellido,Marray[i].nombre);
+                    }
+                 }
+
+
+            }
+        }
+
+    return 0;
+}
+
 //*****************************************
 //Ordenar
 /** \brief Ordena por campo XXXXX los elementos de un array ante la igualdad de estos ordena por el campo ZZZZZZ
@@ -379,6 +415,7 @@ int musicos_listar(Musicos array[], int size)                      //cambiar soc
 void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)                      //cambiar socios
 {
     //*******************************************************************
+    *contadorIdMusico = *contadorIdMusico + 1;
     arrayMusicos[1].idMusico=*contadorIdMusico;
     arrayMusicos[1].isEmpty=0;
     strcpy(arrayMusicos[1].nombre,"Mus1");
@@ -386,8 +423,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[1].edad=30;
     arrayMusicos[1].idOrquesta=1;
     arrayMusicos[1].idInstrumento=2;
-    *contadorIdMusico = *contadorIdMusico + 1;
 
+    *contadorIdMusico = *contadorIdMusico + 1;
     arrayMusicos[2].idMusico=*contadorIdMusico;
     arrayMusicos[2].isEmpty=0;
     strcpy(arrayMusicos[2].nombre,"Mus2");
@@ -395,8 +432,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[2].edad=20;
     arrayMusicos[2].idOrquesta=2;
     arrayMusicos[2].idInstrumento=5;
-    *contadorIdMusico = *contadorIdMusico + 1;
 
+    *contadorIdMusico = *contadorIdMusico + 1;
     arrayMusicos[3].idMusico=*contadorIdMusico;
     arrayMusicos[3].isEmpty=0;
     strcpy(arrayMusicos[3].nombre,"Mus3");
@@ -404,8 +441,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[3].edad=25;
     arrayMusicos[3].idOrquesta=4;
     arrayMusicos[3].idInstrumento=2;
-    *contadorIdMusico= *contadorIdMusico + 1;
 
+    *contadorIdMusico= *contadorIdMusico + 1;
     arrayMusicos[4].idMusico=*contadorIdMusico;
     arrayMusicos[4].isEmpty=0;
     strcpy(arrayMusicos[4].nombre,"Mus4");
@@ -413,8 +450,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[4].edad=27;
     arrayMusicos[4].idOrquesta=4;
     arrayMusicos[4].idInstrumento=1;
-    *contadorIdMusico= *contadorIdMusico + 1;
 
+    *contadorIdMusico= *contadorIdMusico + 1;
      arrayMusicos[5].idMusico=*contadorIdMusico;
     arrayMusicos[5].isEmpty=0;
     strcpy(arrayMusicos[5].nombre,"Mus5");
@@ -422,9 +459,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[5].edad=22;
     arrayMusicos[5].idOrquesta=1;
     arrayMusicos[5].idInstrumento=3;
+
     *contadorIdMusico= *contadorIdMusico + 1;
-
-
     arrayMusicos[6].idMusico=*contadorIdMusico;
     arrayMusicos[6].isEmpty=0;
     strcpy(arrayMusicos[6].nombre,"Mus6");

@@ -66,8 +66,6 @@ int musicos_ordenarMenoraMayor(Musicos *arrayMusicos,int len)
                 }
             }
         }
-
-
     }
 
     return retorno;
@@ -131,7 +129,6 @@ int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arra
 {
     int i;
     int acumuladorMusicos=0;
-    //int cantidad=0;
     int musicos;
     int retorno = -1;
     for(i=0;i<len;i++)
@@ -145,9 +142,9 @@ int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arra
     }
     musicos=acumuladorMusicos;
     printf("la cantidad de musicos por orquesta es: %d\n",musicos);
- return retorno;
+    return retorno;
 }
-int musicos_listarPorInstrumentos(Musicos array[], int size)                      //cambiar socios
+int musicos_listarPorInstrumentos(Musicos array[], int size)
 {
     int retorno=-1;
     int i;
@@ -162,13 +159,73 @@ int musicos_listarPorInstrumentos(Musicos array[], int size)                    
 
                 {
                     printf("\n ID: %d\n nombre: %s\n apellido: %s\n edad: %d\n id orquesta : %d \n id instrumento: %d",
-                    array[i].idMusico,array[i].nombre,array[i].apellido,array[i].edad,array[i].idOrquesta,array[i].idInstrumento);      //cambiar todos
+                    array[i].idMusico,array[i].nombre,array[i].apellido,array[i].edad,array[i].idOrquesta,array[i].idInstrumento);
                 }
 
         }
         retorno=0;
     }
     return retorno;
+}
+
+int orquesta_listadoMenosSeis(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize){
+    int i;
+    int j;
+    int cantidad;
+
+        for(i=0;i<Osize;i++){
+            if (!OrquestaArray[i].isEmpty){
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < 6){
+                    printf("\n ORQUESTA:");
+
+                    printf(" ID: %d - nombre: %s - Lugar : %s - Tipo : %d \n",
+                      OrquestaArray[i].idOrquesta,OrquestaArray[i].nombre,OrquestaArray[i].lugar,OrquestaArray[i].tipo);
+
+                    for(j=0;j<Msize;j++){
+                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta){
+                            printf(" ->  MUSICO - ID: %d - Nombre: %s - Apellido: %s - Edad: %d - id Instrumento: %d \n",
+                           MusicoArray[j].idMusico,MusicoArray[j].nombre,MusicoArray[j].apellido,MusicoArray[j].edad,MusicoArray[j].idInstrumento);
+                        }
+                    }
+                }
+            }
+        }
+    return 0;
+}
+
+int orquesta_MenorCantidadMusicos(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize){
+    int i;
+    int j;
+    int cantidad=9999;
+
+        for(i=0;i<Osize;i++){
+            if (!OrquestaArray[i].isEmpty){
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < cantidad){
+                    cantidad = musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta);
+                }
+            }
+        }
+
+        for(i=0;i<Osize;i++){
+            if (!OrquestaArray[i].isEmpty){
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) == cantidad){
+                    printf("\n ORQUESTA:");
+
+                    printf(" ID: %d - nombre: %s - Lugar : %s - Tipo : %d \n",
+                      OrquestaArray[i].idOrquesta,OrquestaArray[i].nombre,OrquestaArray[i].lugar,OrquestaArray[i].tipo);
+
+                    for(j=0;j<Msize;j++){
+                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta){
+                            printf(" ->  MUSICO - ID: %d - Nombre: %s - Apellido: %s - Edad: %d - id Instrumento: %d \n",
+                           MusicoArray[j].idMusico,MusicoArray[j].nombre,MusicoArray[j].apellido,MusicoArray[j].edad,MusicoArray[j].idInstrumento);
+                        }
+                    }
+                }
+            }
+        }
+
+
+    return 0;
 }
 
 int orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
@@ -190,7 +247,7 @@ int orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
     return retorno;
 }
 
-int inf_orquestasMenosSeisMusicos(Musicos* arrayMusico, int sizeMusico, Orquesta* arrayOrquesta, int sizeOrquesta)
+/*int inf_orquestasMenosSeisMusicos(Musicos* arrayMusico, int sizeMusico, Orquesta* arrayOrquesta, int sizeOrquesta)
 {
     int retorno = -1;
     int arraySinRepetir[sizeMusico];
@@ -204,13 +261,10 @@ int inf_orquestasMenosSeisMusicos(Musicos* arrayMusico, int sizeMusico, Orquesta
 
 
         }
-
-
-
         retorno = 0;
     }
     return retorno;
-}
+}*/
 
 
 

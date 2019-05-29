@@ -32,6 +32,8 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorId);
 int musicos_buscarNombreyApellido ( Musicos array[], int size, char* valorBuscado,char* apellidoBuscado, int* indice);                     //cambiar Musicos
 int musicos_bajaPorOrquesta(Musicos array[],int sizeArray,int idOrquesta);
 int musico_Y_orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico);
+int musicos_CantidadPorOrquesta(Musicos array[],int size, int IdOrquesta);
+int musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos IArray[], int Isize);
 #endif // MUSICO_H_INCLUDED
 
 

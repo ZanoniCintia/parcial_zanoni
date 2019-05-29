@@ -145,11 +145,14 @@ int main()
                     musicos_listarPorInstrumentos(arrayMusicos, QTY_ARRAY_MUSICO);
                     break;
                 case 5:
-
+                    orquesta_listadoMenosSeis(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);
                     break;
                 case 6:
+                    printf("\n ORQUSTAS CON MENOS MUSICOS:");
+                    orquesta_MenorCantidadMusicos(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);
                     break;
                 case 7:
+                    musicos_InstrumentosPorOrquesta(arrayOrquesta,QTY_ARRAY_ORQUESTA,arrayMusicos,QTY_ARRAY_MUSICO);
                     break;
                 case 8:
                     break;
