@@ -126,7 +126,7 @@ int main()
 
             case 4:
                 do{
-                utn_getUnsignedInt("\n\n-------MENU INFORMES-------\n\n1)Listar orquesta por lugar\n2)Musicos menores a 25 años\n3)Promedio de instrumentos por orquesta\n4)Musicos que no tocan vientos\n5)Salir\nIngrese la opcion: ",                   //cambiar
+                utn_getUnsignedInt("\n\n-------MENU INFORMES-------\n\n1)Listar orquesta por lugar\n2)Musicos menores a 25 años\n3)Promedio de instrumentos por orquesta\n4)Musicos que no tocan vientos\n5)menos de 6 musicos\n6)\n7)\n8)\n9)Salir\nIngrese la opcion: ",                   //cambiar
                                    "\nError",1,sizeof(int),1,6,1,&opcion);
                 system("clear");
                 switch(opcion)
@@ -144,10 +144,19 @@ int main()
                 case 4:
                     musicos_listarPorInstrumentos(arrayMusicos, QTY_ARRAY_MUSICO);
                     break;
-                 case 5:
+                case 5:
+
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                case 9:
                     break;
                 }
-                }while(opcion!=5);
+                }while(opcion!=9);
             break;
         }
         }while(primeraOpcion!=6);

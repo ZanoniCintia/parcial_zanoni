@@ -190,7 +190,31 @@ int orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
     return retorno;
 }
 
-int orquesta_listarLugar(Orquesta array[], int size)                      //cambiar autor
+int inf_orquestasMenosSeisMusicos(Musicos* arrayMusico, int sizeMusico, Orquesta* arrayOrquesta, int sizeOrquesta)
+{
+    int retorno = -1;
+    int arraySinRepetir[sizeMusico];
+    int contador;
+    int flag = 1;
+    int i;
+    if(arrayMusico != NULL && arrayOrquesta != NULL && sizeMusico > 0 && sizeOrquesta > 0)
+    {
+        for(i=0;i<sizeMusico;i++)
+        {
+
+
+        }
+
+
+
+        retorno = 0;
+    }
+    return retorno;
+}
+
+
+
+int orquesta_listarLugar(Orquesta array[], int size)
 {
     int retorno=-1;
     int i;
@@ -206,7 +230,7 @@ int orquesta_listarLugar(Orquesta array[], int size)                      //camb
                 orquesta_tipo(array[i],tipo);
                 printf("\n ID: %d\n lugar : %s \ntipo : %s ",
                       array[i].idOrquesta,array[i].lugar,tipo);
-               }              //cambiar todos
+               }
         }
         retorno=0;
     }

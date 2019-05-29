@@ -228,3 +228,64 @@
 	<ctype.h>
 	"utn.h"
 
+1559159594 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"instrumentos.h"
+	"orquesta.h"
+
+1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.h
+
+1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.h
+	"orquesta.h"
+	"instrumentos.h"
+
+1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.h
+
+1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.h
+
+1559157951 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"instrumentos.h"
+
+1559157340 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/main.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+	"musico.h"
+	"instrumentos.h"
+	"informes.h"
+
+1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.h
+
+1559157951 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"musico.h"
+	"instrumentos.h"
+	"orquesta.h"
+
+1559157951 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.c
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"orquesta.h"
+
+1559157340 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+

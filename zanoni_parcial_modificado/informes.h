@@ -10,4 +10,5 @@ int orquesta_calcularPromedioInstrumentos(Orquesta *arrayOrquesta,int lenOrquest
 int musicos_listarPorInstrumentos(Musicos array[], int size);
 int orquesta_buscarPorLugar(Orquesta *array, int len, char lugar);
 int orquesta_listarLugar(Orquesta array[], int size);
+
 #endif // INFORMES_H_INCLUDED

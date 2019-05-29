@@ -380,29 +380,29 @@ void orquesta_mock(Orquesta arrayOrquesta[], int size,int *contadorIdOrquesta)  
 
     arrayOrquesta[1].idOrquesta=*contadorIdOrquesta ;
     arrayOrquesta[1].isEmpty=0;
-    strcpy(arrayOrquesta[1].nombre,"la mississippi");
-    strcpy(arrayOrquesta[1].lugar,"varela");
+    strcpy(arrayOrquesta[1].nombre,"Orquesta1");
+    strcpy(arrayOrquesta[1].lugar,"Lugar1");
     arrayOrquesta[1].tipo=1;
     *contadorIdOrquesta = *contadorIdOrquesta + 1;
 
     arrayOrquesta[2].idOrquesta=*contadorIdOrquesta ;
     arrayOrquesta[2].isEmpty=0;
-    strcpy(arrayOrquesta[2].nombre,"margot");
-    strcpy(arrayOrquesta[2].lugar,"avellaneda");
+    strcpy(arrayOrquesta[2].nombre,"Orquesta2");
+    strcpy(arrayOrquesta[2].lugar,"Lugar1");
     arrayOrquesta[2].tipo=2;
     *contadorIdOrquesta = *contadorIdOrquesta + 1;
 
     arrayOrquesta[3].idOrquesta=*contadorIdOrquesta ;
     arrayOrquesta[3].isEmpty=0;
-    strcpy(arrayOrquesta[3].nombre,"picazo");
-    strcpy(arrayOrquesta[3].lugar,"caba");
+    strcpy(arrayOrquesta[3].nombre,"Orquesta3");
+    strcpy(arrayOrquesta[3].lugar,"Lugar2");
     arrayOrquesta[3].tipo=3;
     *contadorIdOrquesta = *contadorIdOrquesta+ 1;
 
     arrayOrquesta[4].idOrquesta=*contadorIdOrquesta ;
     arrayOrquesta[4].isEmpty=0;
-    strcpy(arrayOrquesta[4].nombre,"lolo");
-    strcpy(arrayOrquesta[4].lugar,"techo");
+    strcpy(arrayOrquesta[4].nombre,"Orquesta4");
+    strcpy(arrayOrquesta[4].lugar,"Lugar3");
     arrayOrquesta[4].tipo=2;
 
 
