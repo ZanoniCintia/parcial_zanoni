@@ -2,18 +2,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
-#include "orquesta.h" //cambiar por nombre entidad
+#include "orquesta.h"
 
 
-/** \brief  To indicate that all position in the array are empty,
-*          this function put the flag (isEmpty) in TRUE in all
-*          position of the array
-* \param array autor Array of autor
-* \param size int Array length
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+/** \brief indica la primer posicion en el array
+*
+* \param array del tipo orquesta
+* \param longitud del array
+* \return retorna 0(ok) cuando esta en la primer posicion del array
 *
 */
-int orquesta_Inicializar(Orquesta array[], int size)                                    //cambiar autor
+int orquesta_Inicializar(Orquesta array[], int size)
 {
     int retorno=-1;
     if(array!= NULL && size>0)
@@ -28,13 +27,13 @@ int orquesta_Inicializar(Orquesta array[], int size)                            
 }
 
 /** \brief Busca el primer lugar vacio en un array
-* \param array orquesta
-* \param size int Tamaño del array
-* \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
-* \return int Return (-1) si no encuentra un lugar vacio o Error [Invalid length or NULL pointer] - (0) si encuentra una posicion vacia
+* \param array tipo orquesta
+* \param Tamaño del array
+* \param Puntero a la posicion del array donde se encuentra el valor buscado
+* \return Retorna (0) si encuentra una posicion vacia
 *
 */
-int orquesta_buscarEmpty(Orquesta array[], int size, int* posicion)                    //cambiar autor
+int orquesta_buscarEmpty(Orquesta array[], int size, int* posicion)
 {
     int retorno=-1;
     int i;
@@ -82,38 +81,6 @@ int orquesta_buscarID(Orquesta array[], int size, int valorBuscado, int* posicio
 }
 
 
-//String
-/** \brief Busca un string en un array
-* \param array orquesta
-* \param size int Tamaño del array
-* \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
-* \return int Return (-1) si no encuentra el valor buscado o Error [Invalid length or NULL pointer] - (0) si encuentra el valor buscado
-*
-*/
-int orquesta_buscarString(Orquesta array[], int size, char* valorBuscado, int* indice)                    //cambiar autor
-{
-    int retorno=-1;
-    int i;
-    if(array!=NULL && size>=0)
-    {
-
-        for(i=0;i<size;i++)
-        {
-            if(array[i].isEmpty==1)
-                continue;
-            else if(strcmp(array[i].lugar,valorBuscado)==0)                                        //cambiar campo nombre
-            {
-                *indice=i;
-                retorno=0;
-                break;
-            }
-        }
-    }
-    return retorno;
-}
-
-//*****************************************
-//Alta
 /** \brief Solicita los datos para completar la primer posicion vacia de un array
 * \param array orquesta
 * \param size int Tamaño del array
@@ -205,80 +172,44 @@ int orquesta_tipo(Orquesta tipoOrquesta,char* tipos)
     return retorno;
 }*/
 
-//Baja valor repetido
-/** \brief Borra todos los elemento del array que contengan el valor buscado
-* \param array orquesta
-* \param size int Tamaño del array
-* \param valorBuscado int Valor a buscar en el array
-* \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
-*
-*/
-int orquesta_bajaValorRepetidoInt(Orquesta array[], int sizeArray, int valorBuscado) //cuando hay que dar de baja todas las posiciones en las que se encuentra ese int
-{
-    int retorno=-1;
-    int i;
-    if(array!=NULL && sizeArray>0)
-    {
-        for(i=0;i<sizeArray;i++)
-        {
-            if(array[i].idOrquesta==valorBuscado)                                                        //cambiar si no se busca por ID
-            {
-                array[i].isEmpty=1;
-                array[i].idOrquesta=0;                                                                   //cambiar campo id
-                                                           //cambiar campo varFloat
-                strcpy(array[i].nombre,"");                                                   //cambiar campo nombre
-                strcpy(array[i].lugar,"");                                               //cambiar campo apellido
-            }
-        }
-        retorno=0;
-    }
-    return retorno;
-}
 
-
-
-//*****************************************
-//Modificar
 /** \brief Busca un elemento por ID y modifica sus campos
 * \param array autor Array de autor
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
 *
 */
-int orquesta_modificar(Orquesta array[], int sizeArray)                                //cambiar autor
+int orquesta_modificar(Orquesta array[], int sizeArray)
 {
     int retorno=-1;
     int posicion;
-    int id;                                                                                         //cambiar si no se busca por ID
+    int id;
     char opcion;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);         //cambiar si no se busca por ID
-        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a modificar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);
+        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)
         {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+            printf("\nNo existe este ID");
         }
         else
         {
             do
-            {       //copiar printf de alta
+            {
                 printf("\n Posicion: %d\n ID: %d\n nombre: %s\n lugar: %s \ntipo : %d ",
                    posicion, array[posicion].idOrquesta,array[posicion].nombre,array[posicion].lugar,array[posicion].tipo);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
                 {
                     case 'A':
-                        utn_getName("\n: ","\nError",1,TEXT_SIZE_ORQUESTA,1,array[posicion].nombre);          //mensaje + cambiar campo varInt
+                        utn_getName("\n: ","\nError",1,TEXT_SIZE_ORQUESTA,1,array[posicion].nombre);
                         break;
                     case 'B':
                         utn_getName("\n: ","\nError",1,TEXT_SIZE_ORQUESTA,1,array[posicion].lugar);
                         break;
                     case 'C':
 
-                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);                      //mensaje + cambiar campo nombre
-                        break;
-                    //case 'D':
-                                     //mensaje + cambiar campo apellido
+                        utn_getUnsignedInt("\n: ","\nError",1,sizeof(int),1,1,1,&array[posicion].tipo);
                         break;
                     case 'S':
                         break;

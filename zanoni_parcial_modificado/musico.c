@@ -310,31 +310,7 @@ int musicos_CantidadPorOrquesta(Musicos array[],int size, int IdOrquesta){
     return cantidad;
 }
 
-int musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos IArray[], int Isize){
 
-    int i;
-    int j;
-    int idOrquesta;
-
-        utn_getUnsignedInt("Ingrese id de orquesta:","Error",0,10,0,10,1,idOrquesta);
-
-        for(i=0;i<Msize;i++){
-            if (!Marray[i].isEmpty && Marray[i].idOrquesta == IdOrquesta){
-                 for(j=0;j<Isize;j++){
-                    if(!IArray[j].isEmpty && IArray.idInstrumentos == Marray[i].idInstrumento){
-                        printf("Instrumento : %s del tipo %d y lo toca el musico id %d llamado %s %s",IArray[j].nombre,IArray[j].tipo,Marray[i].apellido,Marray[i].nombre);
-                    }
-                 }
-
-
-            }
-        }
-
-    return 0;
-}
-
-//*****************************************
-//Ordenar
 /** \brief Ordena por campo XXXXX los elementos de un array ante la igualdad de estos ordena por el campo ZZZZZZ
 * \param array musicos
 * \param size int Tamaño del array
@@ -344,7 +320,7 @@ int musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos IArr
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
 *
 */
-int musicos_ordenarPorDobleCriterio(Musicos array[],int size, int orderFirst, int orderSecond)                              //cambiar socios
+int musicos_ordenarPorDobleCriterio(Musicos array[],int size, int orderFirst, int orderSecond)
 {
     int retorno=-1;
     int i;
@@ -384,15 +360,13 @@ int musicos_ordenarPorDobleCriterio(Musicos array[],int size, int orderFirst, in
     return retorno;
 }
 
-//*****************************************
-//Listar
 /** \brief Lista los elementos de un array
 * \param array musicos
 * \param size int Tamaño del array
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int musicos_listar(Musicos array[], int size)                      //cambiar socios
+int musicos_listar(Musicos array[], int size)
 {
     int retorno=-1;
     int i;
@@ -404,7 +378,7 @@ int musicos_listar(Musicos array[], int size)                      //cambiar soc
                 continue;
             else
                 printf("\n ID: %d\n nombre: %s\n apellido: %s\n edad: %d\n id orquesta : %d \n id instrumento: %d",
-                       array[i].idMusico,array[i].nombre,array[i].apellido,array[i].edad,array[i].idOrquesta,array[i].idInstrumento);      //cambiar todos
+                       array[i].idMusico,array[i].nombre,array[i].apellido,array[i].edad,array[i].idOrquesta,array[i].idInstrumento);
         }
         retorno=0;
     }
@@ -412,9 +386,9 @@ int musicos_listar(Musicos array[], int size)                      //cambiar soc
 }
 
 
-void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)                      //cambiar socios
+void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)
 {
-    //*******************************************************************
+
     *contadorIdMusico = *contadorIdMusico + 1;
     arrayMusicos[1].idMusico=*contadorIdMusico;
     arrayMusicos[1].isEmpty=0;
@@ -469,27 +443,27 @@ void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)       
     arrayMusicos[6].idOrquesta=3;
     arrayMusicos[6].idInstrumento=4;
 }
-int musico_Y_orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
+int musico_Y_orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)
 {
     int retorno=-1;
     int posicion;
     int id;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
-        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);
+        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)
         {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+            printf("\nNo existe este ID");
         }
         else
         {
             musicos_bajaPorOrquesta(arrayMusico,sizeArrayMusico,id);
             array[posicion].isEmpty=1;
-            array[posicion].idOrquesta=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
-            strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
+            array[posicion].idOrquesta=0;
+            strcpy(array[posicion].nombre,"");
             strcpy(array[posicion].lugar,"");
             array[posicion].tipo='v';
-                                                           //cambiar campo apellido
+
             retorno=0;
         }
     }

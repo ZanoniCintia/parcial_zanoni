@@ -228,7 +228,7 @@
 	<ctype.h>
 	"utn.h"
 
-1559169253 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.c
+1559185359 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -239,22 +239,22 @@
 
 1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.h
 
-1559165181 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.h
+1559183790 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.h
 	"orquesta.h"
 	"instrumentos.h"
 
-1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.h
+1559183385 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.h
 
-1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.h
+1559183385 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.h
 
-1559157951 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.c
+1559185303 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"instrumentos.h"
 
-1559167632 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/main.c
+1559184353 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -264,9 +264,9 @@
 	"instrumentos.h"
 	"informes.h"
 
-1559166050 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.h
+1559183789 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.h
 
-1559169027 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.c
+1559183789 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -275,7 +275,7 @@
 	"instrumentos.h"
 	"orquesta.h"
 
-1559168600 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.c
+1559183385 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>

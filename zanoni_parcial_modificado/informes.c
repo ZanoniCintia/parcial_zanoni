@@ -6,7 +6,7 @@
 #include "instrumentos.h"
 #include "orquesta.h"
 
-int musicos_ordenarMayoraMenor(Musicos *arrayMusicos,int len)
+/*int musicos_ordenarMayoraMenor(Musicos *arrayMusicos,int len)
 {
     int i;
     int j;
@@ -36,8 +36,9 @@ int musicos_ordenarMayoraMenor(Musicos *arrayMusicos,int len)
     musicos_listar(arrayMusicos,len);
     return retorno;
 
-}
-int musicos_ordenarMenoraMayor(Musicos *arrayMusicos,int len)
+}*/
+
+/*int musicos_ordenarMenoraMayor(Musicos *arrayMusicos,int len)
 {
     int i;
     int j;
@@ -70,9 +71,9 @@ int musicos_ordenarMenoraMayor(Musicos *arrayMusicos,int len)
 
     return retorno;
 
-}
+}*/
 
-int orquesta_calcularPromedioInstrumentos(Orquesta *arrayOrquesta,int lenOrquesta, Musicos *arrayMusicos,int lenMusicos )
+int inf_orquesta_calcularPromedioInstrumentos(Orquesta *arrayOrquesta,int lenOrquesta, Musicos *arrayMusicos,int lenMusicos )
 {
     int i;
     float acumulador=0;
@@ -103,7 +104,7 @@ int orquesta_calcularPromedioInstrumentos(Orquesta *arrayOrquesta,int lenOrquest
     return retorno;
 }
 
-int musicos_mostrarArray(Musicos *arrayMusicos, int len)
+int inf_musicos_mostrarArray(Musicos *arrayMusicos, int len)
 {
     int i;
 
@@ -125,7 +126,8 @@ int musicos_mostrarArray(Musicos *arrayMusicos, int len)
     return 0;
 }
 
-int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arrayOrquesta,int len)
+
+int inf_musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arrayOrquesta,int len)
 {
     int i;
     int acumuladorMusicos=0;
@@ -144,7 +146,7 @@ int musicos_cantidadDeMusicosEnCadaOrquesta(Musicos *arrayMusicos,Orquesta *arra
     printf("la cantidad de musicos por orquesta es: %d\n",musicos);
     return retorno;
 }
-int musicos_listarPorInstrumentos(Musicos array[], int size)
+int inf_musicos_listarPorInstrumentos(Musicos array[], int size)
 {
     int retorno=-1;
     int i;
@@ -168,21 +170,27 @@ int musicos_listarPorInstrumentos(Musicos array[], int size)
     return retorno;
 }
 
-int orquesta_listadoMenosSeis(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize){
+int inf_orquesta_listadoMenosSeis(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize)
+{
     int i;
     int j;
-    int cantidad;
 
-        for(i=0;i<Osize;i++){
-            if (!OrquestaArray[i].isEmpty){
-                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < 6){
+
+        for(i=0;i<Osize;i++)
+        {
+            if (!OrquestaArray[i].isEmpty)
+            {
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < 6)
+                {
                     printf("\n ORQUESTA:");
 
                     printf(" ID: %d - nombre: %s - Lugar : %s - Tipo : %d \n",
                       OrquestaArray[i].idOrquesta,OrquestaArray[i].nombre,OrquestaArray[i].lugar,OrquestaArray[i].tipo);
 
-                    for(j=0;j<Msize;j++){
-                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta){
+                    for(j=0;j<Msize;j++)
+                    {
+                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta)
+                        {
                             printf(" ->  MUSICO - ID: %d - Nombre: %s - Apellido: %s - Edad: %d - id Instrumento: %d \n",
                            MusicoArray[j].idMusico,MusicoArray[j].nombre,MusicoArray[j].apellido,MusicoArray[j].edad,MusicoArray[j].idInstrumento);
                         }
@@ -193,29 +201,37 @@ int orquesta_listadoMenosSeis(Orquesta OrquestaArray[],int Osize,Musicos MusicoA
     return 0;
 }
 
-int orquesta_MenorCantidadMusicos(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize){
+int inf_orquesta_MenorCantidadMusicos(Orquesta OrquestaArray[],int Osize,Musicos MusicoArray[], int Msize)
+{
     int i;
     int j;
     int cantidad=9999;
 
         for(i=0;i<Osize;i++){
-            if (!OrquestaArray[i].isEmpty){
-                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < cantidad){
+            if (!OrquestaArray[i].isEmpty)
+            {
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) < cantidad)
+                {
                     cantidad = musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta);
                 }
             }
         }
 
-        for(i=0;i<Osize;i++){
-            if (!OrquestaArray[i].isEmpty){
-                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) == cantidad){
+        for(i=0;i<Osize;i++)
+        {
+            if (!OrquestaArray[i].isEmpty)
+            {
+                if (musicos_CantidadPorOrquesta(MusicoArray,Msize,OrquestaArray[i].idOrquesta) == cantidad)
+                {
                     printf("\n ORQUESTA:");
 
                     printf(" ID: %d - nombre: %s - Lugar : %s - Tipo : %d \n",
                       OrquestaArray[i].idOrquesta,OrquestaArray[i].nombre,OrquestaArray[i].lugar,OrquestaArray[i].tipo);
 
-                    for(j=0;j<Msize;j++){
-                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta){
+                    for(j=0;j<Msize;j++)
+                    {
+                        if (!MusicoArray[j].isEmpty && MusicoArray[j].idOrquesta == OrquestaArray[i].idOrquesta)
+                        {
                             printf(" ->  MUSICO - ID: %d - Nombre: %s - Apellido: %s - Edad: %d - id Instrumento: %d \n",
                            MusicoArray[j].idMusico,MusicoArray[j].nombre,MusicoArray[j].apellido,MusicoArray[j].edad,MusicoArray[j].idInstrumento);
                         }
@@ -228,7 +244,7 @@ int orquesta_MenorCantidadMusicos(Orquesta OrquestaArray[],int Osize,Musicos Mus
     return 0;
 }
 
-int orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
+int inf_orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
 {
     int i;
     int retorno = -1;
@@ -247,28 +263,7 @@ int orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
     return retorno;
 }
 
-/*int inf_orquestasMenosSeisMusicos(Musicos* arrayMusico, int sizeMusico, Orquesta* arrayOrquesta, int sizeOrquesta)
-{
-    int retorno = -1;
-    int arraySinRepetir[sizeMusico];
-    int contador;
-    int flag = 1;
-    int i;
-    if(arrayMusico != NULL && arrayOrquesta != NULL && sizeMusico > 0 && sizeOrquesta > 0)
-    {
-        for(i=0;i<sizeMusico;i++)
-        {
-
-
-        }
-        retorno = 0;
-    }
-    return retorno;
-}*/
-
-
-
-int orquesta_listarLugar(Orquesta array[], int size)
+int inf_orquesta_listarLugar(Orquesta array[], int size)
 {
     int retorno=-1;
     int i;
@@ -289,4 +284,31 @@ int orquesta_listarLugar(Orquesta array[], int size)
         retorno=0;
     }
     return retorno;
+}
+
+
+
+int inf_musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos IArray[], int Isize)
+{
+
+    int i;
+    int j;
+    int id;
+
+        utn_getUnsignedInt("\nID a consultar: ","\nError",1,sizeof(int),1,Isize,1,&id);
+
+        for(i=0;i<Msize;i++)
+        {
+            if (!Marray[i].isEmpty && Marray[i].idOrquesta == id)
+            {
+                 for(j=0;j<Isize;j++){
+                    if(!IArray[j].isEmpty && IArray[j].idInstrumentos == Marray[i].idInstrumento)
+                    {
+                        printf("\nInstrumento : %s del tipo %d y lo toca el musico id %d llamado %s %s",IArray[j].nombre,IArray[j].tipo,Marray[i].idMusico,Marray[i].apellido,Marray[i].nombre);
+                    }
+                 }
+            }
+        }
+
+    return 0;
 }

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "utn.h"
 #include "instrumentos.h"
-#define TEXT_SIZE_INSTRUMENTOS 50 //cambiar por nombre entidad
+#define TEXT_SIZE_INSTRUMENTOS 50
 
 
 /** \brief  To indicate that all position in the array are empty,
@@ -170,7 +170,7 @@ int instrumentos_baja(Instrumentos array[], int sizeArray)                      
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int instrumentos_listar(Instrumentos array[], int size)                      //cambiar autor
+int instrumentos_listar(Instrumentos array[], int size)
 {
     int retorno=-1;
     int i;
@@ -185,15 +185,15 @@ int instrumentos_listar(Instrumentos array[], int size)                      //c
                 instrumentos_tipo(array[i],tipo);
                 printf("\n ID : %d\n nombre : %s \ntipo : %s ",
                        array[i].idInstrumentos,array[i].nombre,tipo);
-            }//cambiar todos
+            }
         }
         retorno=0;
     }
     return retorno;
 }
-void instrumentos_mock(Instrumentos arrayInstrumentos[], int size,int *contadorId)                      //cambiar libros
+void instrumentos_mock(Instrumentos arrayInstrumentos[], int size,int *contadorId)
 {
-    //*******************************************************************
+
     arrayInstrumentos[1].idInstrumentos=*contadorId;
     arrayInstrumentos[1].isEmpty=0;
     arrayInstrumentos[1].idInstrumentos=1;
@@ -228,6 +228,6 @@ void instrumentos_mock(Instrumentos arrayInstrumentos[], int size,int *contadorI
     strcpy(arrayInstrumentos[5].nombre,"inst5");
     arrayInstrumentos[5].tipo=4;
 
-    //contadorId++;
+
 }
 
