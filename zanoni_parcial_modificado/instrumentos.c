@@ -6,15 +6,13 @@
 #define TEXT_SIZE_INSTRUMENTOS 50
 
 
-/** \brief  To indicate that all position in the array are empty,
-*          this function put the flag (isEmpty) in TRUE in all
-*          position of the array
-* \param array instrumentos
-* \param size int Array length
-* \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
+/** \brief  indica la primer posicion del array instrumentos
+* \param array de instrumentos
+* \param size tamaño del array
+* \return la primer posicion del array
 *
 */
-int instrumentos_Inicializar(Instrumentos array[], int size)                                    //cambiar libros
+int instrumentos_Inicializar(Instrumentos array[], int size)
 {
     int retorno=-1;
     if(array!= NULL && size>0)
@@ -30,11 +28,11 @@ int instrumentos_Inicializar(Instrumentos array[], int size)                    
 /** \brief Busca el primer lugar vacio en un array
 * \param array instrumentos
 * \param size int Tamaño del array
-* \param posicion int* Puntero a la posicion del array donde se encuentra el valor buscado
-* \return int Return (-1) si no encuentra un lugar vacio o Error [Invalid length or NULL pointer] - (0) si encuentra una posicion vacia
+* \param posicion Puntero a la posicion del array donde se encuentra el valor buscado
+* \return primer posicion vacia del array
 *
 */
-int instrumentos_buscarEmpty(Instrumentos array[], int size, int* posicion)                    //cambiar libros
+int instrumentos_buscarEmpty(Instrumentos array[], int size, int* posicion)
 {
     int retorno=-1;
     int i;
@@ -56,28 +54,26 @@ int instrumentos_buscarEmpty(Instrumentos array[], int size, int* posicion)     
 /** \brief Solicita los datos para completar la primer posicion vacia de un array
 * \param array instrumentos
 * \param size int Tamaño del array
-* \param contadorID int* Puntero al ID unico que se va a asignar al nuevo elemento
-* \return int Return (-1) si Error [largo no valido o NULL pointer o no hay posiciones vacias] - (0) si se agrega un nuevo elemento exitosamente
+* \param contadorID  Puntero al ID unico que se va a asignar al nuevo elemento
+* \return los datos completos correctos ingresados por el usuario
 *
 */
-int instrumentos_alta(Instrumentos array[], int size, int* contadorID)                          //cambiar libros
+int instrumentos_alta(Instrumentos array[], int size, int* contadorID)
 {
     int retorno=-1;
     int posicion;
     char tipo[30];
     if(array!=NULL && size>0 && contadorID!=NULL)
     {
-        if(instrumentos_buscarEmpty(array,size,&posicion)==-1)                          //cambiar libros
+        if(instrumentos_buscarEmpty(array,size,&posicion)==-1)
         {
             printf("\nNo hay lugares vacios");
         }
         else
         {
             (*contadorID)++;
-            array[posicion].idInstrumentos=*contadorID;                                                       //campo ID
+            array[posicion].idInstrumentos=*contadorID;
             array[posicion].isEmpty=0;
-                      //mensaje + cambiar campo varInt
-            //utn_getFloat("\ngetFloat: ","\nError",1,sizeof(float),0,1,1,&array[posicion].varFloat);             //mensaje + cambiar campo varFloat
             utn_getTexto("\ningrese nombre de instrumento: ","\nError",1,TEXT_SIZE_INSTRUMENTOS,1,array[posicion].nombre);
             utn_getUnsignedInt("\ningrese tipo:\n1 Cuerdas : \n2 Viento-Madera : \n3 Viento-Metal : \n4 Percusion ","\nerror, 1/2/3/4",1,4,1,4,1,&array[posicion].tipo); //mensaje + cambiar campo varString
             instrumentos_tipo(array[posicion],tipo);
@@ -112,7 +108,7 @@ int instrumentos_tipo(Instrumentos tipoInstrumentos,char* tipos)
     }
     return retorno;
 }
-int instrumentos_buscarID(Instrumentos array[], int size, int valorBuscado, int* posicion)                    //cambiar socios
+int instrumentos_buscarID(Instrumentos array[], int size, int valorBuscado, int* posicion)
 {
     int retorno=-1;
     int i;
@@ -122,7 +118,7 @@ int instrumentos_buscarID(Instrumentos array[], int size, int valorBuscado, int*
         {
             if(array[i].isEmpty==1)
                 continue;
-            else if(array[i].idInstrumentos==valorBuscado)                                                   //cambiar campo ID
+            else if(array[i].idInstrumentos==valorBuscado)
             {
                 retorno=0;
                 *posicion=i;
@@ -132,42 +128,42 @@ int instrumentos_buscarID(Instrumentos array[], int size, int valorBuscado, int*
     }
     return retorno;
 }
-//Baja valor unico
-/** \brief Borra un elemento del array por ID
+
+/** \brief Borra un elemento de la estructura instrumentos por ID
 * \param array instrumentos
 * \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
+* \return
 *
 */
-int instrumentos_baja(Instrumentos array[], int sizeArray)                                      //cambiar libros
+int instrumentos_baja(Instrumentos array[], int sizeArray)
 {
     int retorno=-1;
     int posicion;
     int id;
     if(array!=NULL && sizeArray>0)
     {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
-        if(instrumentos_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
+        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);
+        if(instrumentos_buscarID(array,sizeArray,id,&posicion)==-1)
         {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
+            printf("\nNo existe este ID");
         }
         else
         {
             array[posicion].isEmpty=1;
-            array[posicion].idInstrumentos=0;                                                                   //cambiar campo id
-            array[posicion].tipo=0;                                                               //cambiar campo varInt
-                                                                //cambiar campo varFloat
-            strcpy(array[posicion].nombre,"");                                                   //cambiar campo varString
-      ;                                               //cambiar campo varLongString
+            array[posicion].idInstrumentos=0;
+            array[posicion].tipo=0;
+
+            strcpy(array[posicion].nombre,"");
+      ;
             retorno=0;
         }
     }
     return retorno;
 }
-/** \brief Lista los elementos de un array
+/** \brief Lista los elementos de la estructura instrumentos
 * \param array instrumentos
 * \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
+* \return cero (ok) lista elementos del array
 *
 */
 int instrumentos_listar(Instrumentos array[], int size)
@@ -183,7 +179,7 @@ int instrumentos_listar(Instrumentos array[], int size)
                 continue;
             else{
                 instrumentos_tipo(array[i],tipo);
-                printf("\n ID : %d\n nombre : %s \ntipo : %s ",
+                printf("\n ID : %d - Nombre : %s - Tipo : %s ",
                        array[i].idInstrumentos,array[i].nombre,tipo);
             }
         }

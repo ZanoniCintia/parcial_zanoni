@@ -34,3 +34,5 @@ int utn_getChar(char* msg, char* msgError, int min, int max, int reintentos, cha
 int isValidChar(char charRecibido);
 
 int isValidSexo(char cadena);
+int getString ( char* msg,char* msgError,int minimo,int maximo,int reintentos, char* resultado);
+

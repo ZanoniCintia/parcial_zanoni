@@ -26,7 +26,8 @@ int musicos_baja(Musicos array[], int sizeArray);                               
 //int musicos_bajaValorRepetidoInt(Musicos array[], int sizeArray, int valorBuscado);
 int musicos_modificar(Musicos array[], int sizeArray);                                //cambiar Musicos
 //int musicos_ordenarPorDobleCriterio(Musicos array[],int size, int orderFirst, int orderSecond);
-int musicos_listar(Musicos array[], int size);                      //cambiar Musicos
+int musicos_listar(Musicos Marray[], int Msize, Orquesta Oarray[], int Osize, Instrumentos Iarray[], int isize);
+                     //cambiar Musicos
 void musicos_mock(Musicos arrayMusicos[], int size,int *contadorId);
 //int musicos_buscarNombreyApellido ( Musicos array[], int size, char* valorBuscado,char* apellidoBuscado, int* indice);
 int musicos_bajaPorOrquesta(Musicos array[],int sizeArray,int idOrquesta);

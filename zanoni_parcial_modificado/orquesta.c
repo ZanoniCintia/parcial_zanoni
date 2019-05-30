@@ -123,13 +123,13 @@ int orquesta_tipo(Orquesta tipoOrquesta,char* tipos)
         switch(tipoOrquesta.tipo)
         {
             case 1:
-                strcpy((char*)tipos,"sinfonica");
+                strcpy((char*)tipos,"Sinfónica");
                 break;
             case 2:
-                strcpy((char*)tipos,"filarmonica");
+                strcpy((char*)tipos,"Filarmónica");
                 break;
             case 3:
-                strcpy((char*)tipos,"camara");
+                strcpy((char*)tipos,"Cámara");
                 break;
             }
             return 1;
@@ -137,47 +137,13 @@ int orquesta_tipo(Orquesta tipoOrquesta,char* tipos)
     return retorno;
 }
 
-//*****************************************
-//Baja valor unico
-/** \brief Borra un elemento del array por ID
-* \param array orquesta
-* \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se elimina el elemento exitosamente
-*
-*/
-/*int orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)                                      //cambiar autor
-{
-    int retorno=-1;
-    int posicion;
-    int id;
-    if(array!=NULL && sizeArray>0)
-    {
-        utn_getUnsignedInt("\nID a cancelar: ","\nError",1,sizeof(int),1,sizeArray,1,&id);          //cambiar si no se busca por ID
-        if(orquesta_buscarID(array,sizeArray,id,&posicion)==-1)                                   //cambiar si no se busca por ID
-        {
-            printf("\nNo existe este ID");                                                          //cambiar si no se busca por ID
-        }
-        else
-        {
-            musicos_bajaPorOrquesta(arrayMusico,sizeArrayMusico,id);
-            array[posicion].isEmpty=1;
-            array[posicion].idOrquesta=0;                                                                   //cambiar campo id                                                          //cambiar campo varFloat
-            strcpy(array[posicion].nombre,"");                                                   //cambiar campo nombre
-            strcpy(array[posicion].lugar,"");
-            array[posicion].tipo='v';
-                                                           //cambiar campo apellido
-            retorno=0;
-        }
-    }
-    return retorno;
-}*/
+
 
 
 /** \brief Busca un elemento por ID y modifica sus campos
 * \param array autor Array de autor
 * \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer o no encuentra elementos con el valor buscado] - (0) si se modifica el elemento exitosamente
-*
+* \return modifica los datos elegidos
 */
 int orquesta_modificar(Orquesta array[], int sizeArray)
 {
@@ -196,7 +162,7 @@ int orquesta_modificar(Orquesta array[], int sizeArray)
         {
             do
             {
-                printf("\n Posicion: %d\n ID: %d\n nombre: %s\n lugar: %s \ntipo : %d ",
+                printf("\n Posicion: %d - ID: %d - Nombre: %s - Lugar: %s - Tipo : %d ",
                    posicion, array[posicion].idOrquesta,array[posicion].nombre,array[posicion].lugar,array[posicion].tipo);
                 utn_getChar("\nModificar: A B C D S(salir)","\nError",'A','Z',1,&opcion);
                 switch(opcion)
@@ -214,7 +180,7 @@ int orquesta_modificar(Orquesta array[], int sizeArray)
                     case 'S':
                         break;
                     default:
-                        printf("\nOpcion no valida");
+                        printf("\nOpción no valida");
                 }
             }while(opcion!='S');
             retorno=0;
@@ -223,18 +189,8 @@ int orquesta_modificar(Orquesta array[], int sizeArray)
     return retorno;
 }
 
-//*****************************************
-//Ordenar
-/** \brief Ordena por campo XXXXX los elementos de un array ante la igualdad de estos ordena por el campo ZZZZZZ
-* \param array orquesta
-* \param size int Tamaño del array
-* \param orderFirst int Determina si el orden del primer criterio es ascendete o descendente
-* \param orderSecond int Determina si el orden del segunbdo criterio es ascendete o descendente
-* \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se ordena exitosamente
-*
-*/
-int orquesta_ordenarPorDobleCriterio(Orquesta array[],int size, int orderFirst, int orderSecond)                              //cambiar autor
+
+int orquesta_ordenarPorDobleCriterio(Orquesta array[],int size, int orderFirst, int orderSecond)
 {
     int retorno=-1;
     int i;
@@ -274,15 +230,14 @@ int orquesta_ordenarPorDobleCriterio(Orquesta array[],int size, int orderFirst, 
     return retorno;
 }
 
-//*****************************************
-//Listar
+
 /** \brief Lista los elementos de un array
-* \param array orquesta
+* \param array tipo orquesta
 * \param size int Tamaño del array
-* \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
+* \return lista elemtos del array orquesta
 *
 */
-int orquesta_listar(Orquesta array[], int size)                      //cambiar autor
+int orquesta_listar(Orquesta array[], int size)
 {
     int retorno=-1;
     int i;
@@ -296,7 +251,7 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
             else{
 
                 orquesta_tipo(array[i],tipo);
-                printf("\n ID: %d\n nombre: %s\n lugar : %s \ntipo : %s ",
+                printf("\n ID: %d - Nombre: %s - Lugar: %s - Tipo: %s ",
                       array[i].idOrquesta,array[i].nombre,array[i].lugar,tipo);
                }              //cambiar todos
         }
@@ -306,7 +261,7 @@ int orquesta_listar(Orquesta array[], int size)                      //cambiar a
 }
 
 
-void orquesta_mock(Orquesta arrayOrquesta[], int size,int *contadorIdOrquesta)                      //cambiar autor
+void orquesta_mock(Orquesta arrayOrquesta[], int size,int *contadorIdOrquesta)
 {
     *contadorIdOrquesta = *contadorIdOrquesta + 1;
     arrayOrquesta[1].idOrquesta=*contadorIdOrquesta ;

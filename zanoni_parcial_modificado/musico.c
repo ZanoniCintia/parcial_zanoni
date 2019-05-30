@@ -366,19 +366,30 @@ int musicos_ordenarPorDobleCriterio(Musicos array[],int size, int orderFirst, in
 * \return int Return (-1) si Error [largo no valido o NULL pointer] - (0) si se lista exitosamente
 *
 */
-int musicos_listar(Musicos array[], int size)
+int musicos_listar(Musicos Marray[], int Msize, Orquesta Oarray[], int Osize, Instrumentos Iarray[], int isize)
 {
     int retorno=-1;
     int i;
-    if(array!=NULL && size>=0)
+    int j;
+    if(Marray!=NULL && Msize>=0)
     {
-        for(i=0;i<size;i++)
+        for(i=0;i<Msize;i++)
         {
-            if(array[i].isEmpty==1)
-                continue;
-            else
-                printf("\n ID: %d\n nombre: %s\n apellido: %s\n edad: %d\n id orquesta : %d \n id instrumento: %d",
-                       array[i].idMusico,array[i].nombre,array[i].apellido,array[i].edad,array[i].idOrquesta,array[i].idInstrumento);
+            if(!Marray[i].isEmpty){
+                printf("\n ID: %d - Nombre: %s - Apellido: %s - Edad: %d",
+                       Marray[i].idMusico,Marray[i].nombre,Marray[i].apellido,Marray[i].edad);
+
+                for(j=0;j<Osize;j++){
+                    if(!Oarray[j].isEmpty && (Oarray[j].idOrquesta == Marray[i].idOrquesta)){
+                        printf(" - Orquesta: %s",Oarray[j].nombre);
+                    }
+                }
+                for(j=0;j<isize;j++){
+                    if(!Iarray[j].isEmpty && Iarray[j].idInstrumentos == Marray[i].idInstrumento){
+                        printf(" - Instrumento: %s",Iarray[j].nombre);
+                    }
+                }
+            }
         }
         retorno=0;
     }
@@ -388,60 +399,67 @@ int musicos_listar(Musicos array[], int size)
 
 void musicos_mock(Musicos arrayMusicos[], int size,int *contadorIdMusico)
 {
+    // tipo: 1 Cuerdas - 2 Viento-Madera - 3 Viento-Metal - 4 Percusion "
+    // INTRUMENTO 1 TIPO1
+    // INSTRUMENTO 2 TIPO 2
+    // INSTRUMENTO 4 TIPO 3
 
-    *contadorIdMusico = *contadorIdMusico + 1;
-    arrayMusicos[1].idMusico=*contadorIdMusico;
-    arrayMusicos[1].isEmpty=0;
-    strcpy(arrayMusicos[1].nombre,"Mus1");
-    strcpy(arrayMusicos[1].apellido,"Amus1");
-    arrayMusicos[1].edad=30;
-    arrayMusicos[1].idOrquesta=1;
-    arrayMusicos[1].idInstrumento=2;
+    // ORQUESTA 1
+        *contadorIdMusico = *contadorIdMusico + 1;
 
-    *contadorIdMusico = *contadorIdMusico + 1;
-    arrayMusicos[2].idMusico=*contadorIdMusico;
-    arrayMusicos[2].isEmpty=0;
-    strcpy(arrayMusicos[2].nombre,"Mus2");
-    strcpy(arrayMusicos[2].apellido,"Amus2");
-    arrayMusicos[2].edad=20;
-    arrayMusicos[2].idOrquesta=2;
-    arrayMusicos[2].idInstrumento=5;
+        arrayMusicos[1].idMusico=*contadorIdMusico;
+        arrayMusicos[1].isEmpty=0;
+        strcpy(arrayMusicos[1].nombre,"Mus1");
+        strcpy(arrayMusicos[1].apellido,"Amus1");
+        arrayMusicos[1].edad=30;
+        arrayMusicos[1].idOrquesta=1;
+        arrayMusicos[1].idInstrumento=2;
 
-    *contadorIdMusico = *contadorIdMusico + 1;
-    arrayMusicos[3].idMusico=*contadorIdMusico;
-    arrayMusicos[3].isEmpty=0;
-    strcpy(arrayMusicos[3].nombre,"Mus3");
-    strcpy(arrayMusicos[3].apellido,"Amus3");
-    arrayMusicos[3].edad=25;
-    arrayMusicos[3].idOrquesta=4;
-    arrayMusicos[3].idInstrumento=2;
+        *contadorIdMusico = *contadorIdMusico + 1;
+        arrayMusicos[2].idMusico=*contadorIdMusico;
+        arrayMusicos[2].isEmpty=0;
+        strcpy(arrayMusicos[2].nombre,"Mus2");
+        strcpy(arrayMusicos[2].apellido,"Amus2");
+        arrayMusicos[2].edad=20;
+        arrayMusicos[2].idOrquesta=2;
+        arrayMusicos[2].idInstrumento=5;
 
-    *contadorIdMusico= *contadorIdMusico + 1;
-    arrayMusicos[4].idMusico=*contadorIdMusico;
-    arrayMusicos[4].isEmpty=0;
-    strcpy(arrayMusicos[4].nombre,"Mus4");
-    strcpy(arrayMusicos[4].apellido,"Amus4");
-    arrayMusicos[4].edad=27;
-    arrayMusicos[4].idOrquesta=4;
-    arrayMusicos[4].idInstrumento=1;
+        *contadorIdMusico = *contadorIdMusico + 1;
+        arrayMusicos[3].idMusico=*contadorIdMusico;
+        arrayMusicos[3].isEmpty=0;
+        strcpy(arrayMusicos[3].nombre,"Mus3");
+        strcpy(arrayMusicos[3].apellido,"Amus3");
+        arrayMusicos[3].edad=25;
+        arrayMusicos[3].idOrquesta=4;
+        arrayMusicos[3].idInstrumento=2;
 
-    *contadorIdMusico= *contadorIdMusico + 1;
-     arrayMusicos[5].idMusico=*contadorIdMusico;
-    arrayMusicos[5].isEmpty=0;
-    strcpy(arrayMusicos[5].nombre,"Mus5");
-    strcpy(arrayMusicos[5].apellido,"Amus5");
-    arrayMusicos[5].edad=22;
-    arrayMusicos[5].idOrquesta=1;
-    arrayMusicos[5].idInstrumento=3;
 
-    *contadorIdMusico= *contadorIdMusico + 1;
-    arrayMusicos[6].idMusico=*contadorIdMusico;
-    arrayMusicos[6].isEmpty=0;
-    strcpy(arrayMusicos[6].nombre,"Mus6");
-    strcpy(arrayMusicos[6].apellido,"Amus6");
-    arrayMusicos[6].edad=35;
-    arrayMusicos[6].idOrquesta=3;
-    arrayMusicos[6].idInstrumento=4;
+        *contadorIdMusico= *contadorIdMusico + 1;
+        arrayMusicos[4].idMusico=*contadorIdMusico;
+        arrayMusicos[4].isEmpty=0;
+        strcpy(arrayMusicos[4].nombre,"Mus4");
+        strcpy(arrayMusicos[4].apellido,"Amus4");
+        arrayMusicos[4].edad=27;
+        arrayMusicos[4].idOrquesta=4;
+        arrayMusicos[4].idInstrumento=1;
+
+        *contadorIdMusico= *contadorIdMusico + 1;
+        arrayMusicos[5].idMusico=*contadorIdMusico;
+        arrayMusicos[5].isEmpty=0;
+        strcpy(arrayMusicos[5].nombre,"Mus5");
+        strcpy(arrayMusicos[5].apellido,"Amus5");
+        arrayMusicos[5].edad=22;
+        arrayMusicos[5].idOrquesta=1;
+        arrayMusicos[5].idInstrumento=3;
+//
+        *contadorIdMusico= *contadorIdMusico + 1;
+        arrayMusicos[6].idMusico=*contadorIdMusico;
+        arrayMusicos[6].isEmpty=0;
+        strcpy(arrayMusicos[6].nombre,"Mus6");
+        strcpy(arrayMusicos[6].apellido,"Amus6");
+        arrayMusicos[6].edad=35;
+        arrayMusicos[6].idOrquesta=3;
+        arrayMusicos[6].idInstrumento=4;
 }
 int musico_Y_orquesta_baja(Orquesta array[], int sizeArray,Musicos arrayMusico[],int sizeArrayMusico)
 {

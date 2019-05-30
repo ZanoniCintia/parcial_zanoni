@@ -228,7 +228,7 @@
 	<ctype.h>
 	"utn.h"
 
-1559185359 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.c
+1559248559 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -237,9 +237,9 @@
 	"instrumentos.h"
 	"orquesta.h"
 
-1559157340 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.h
+1559237330 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.h
 
-1559183790 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.h
+1559243215 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.h
 	"orquesta.h"
 	"instrumentos.h"
 
@@ -247,14 +247,14 @@
 
 1559183385 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.h
 
-1559185303 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.c
+1559246393 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/instrumentos.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"instrumentos.h"
 
-1559184353 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/main.c
+1559247482 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/main.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -264,9 +264,9 @@
 	"instrumentos.h"
 	"informes.h"
 
-1559183789 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.h
+1559248559 /home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/informes.h
 
-1559183789 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.c
+1559245893 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/musico.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
@@ -275,14 +275,14 @@
 	"instrumentos.h"
 	"orquesta.h"
 
-1559183385 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.c
+1559248802 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/orquesta.c
 	<string.h>
 	<stdio.h>
 	<stdlib.h>
 	"utn.h"
 	"orquesta.h"
 
-1559157340 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.c
+1559237402 source:/home/cintia/zanoni/parcial_zanoni/zanoni_parcial_modificado/utn.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

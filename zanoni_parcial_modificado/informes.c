@@ -6,72 +6,6 @@
 #include "instrumentos.h"
 #include "orquesta.h"
 
-/*int musicos_ordenarMayoraMenor(Musicos *arrayMusicos,int len)
-{
-    int i;
-    int j;
-    int retorno =-1;
-    Musicos aux;
-
-    for(i=0; i<len; i++)
-    {
-        for(j=i+1; j<=len; j++)
-        {
-            if(strncmp(arrayMusicos[i].apellido,arrayMusicos[j].apellido,50)<0)
-            {
-                aux=arrayMusicos[i];
-                arrayMusicos[i]=arrayMusicos[j];
-                arrayMusicos[j]=aux;
-                retorno =0;
-            }
-            else if(arrayMusicos[i].edad<arrayMusicos[j].edad)
-            {
-                aux=arrayMusicos[i];
-                arrayMusicos[i]=arrayMusicos[j];
-                arrayMusicos[j]=aux;
-                retorno =0;
-            }
-        }
-    }
-    musicos_listar(arrayMusicos,len);
-    return retorno;
-
-}*/
-
-/*int musicos_ordenarMenoraMayor(Musicos *arrayMusicos,int len)
-{
-    int i;
-    int j;
-    int retorno =-1;
-    Musicos aux;
-
-    for(i=0; i<len; i++)
-    {
-        for(j=i+1; j<=len; j++)
-        {
-            if(strncmp(arrayMusicos[i].apellido,arrayMusicos[j].apellido,50)<0)
-            {
-                aux=arrayMusicos[i];
-                arrayMusicos[i]=arrayMusicos[j];
-                arrayMusicos[j]=aux;
-                retorno =0;
-            }
-            else if(strcmp(arrayMusicos[i].apellido,arrayMusicos[j].apellido)==0)
-            {
-                if(arrayMusicos[i].edad<arrayMusicos[j].edad)
-                {
-                    aux=arrayMusicos[i];
-                    arrayMusicos[i]=arrayMusicos[j];
-                    arrayMusicos[j]=aux;
-                    retorno =0;
-                }
-            }
-        }
-    }
-
-    return retorno;
-
-}*/
 
 int inf_orquesta_calcularPromedioInstrumentos(Orquesta *arrayOrquesta,int lenOrquesta, Musicos *arrayMusicos,int lenMusicos )
 {
@@ -246,20 +180,24 @@ int inf_orquesta_MenorCantidadMusicos(Orquesta OrquestaArray[],int Osize,Musicos
 
 int inf_orquesta_buscarPorLugar(Orquesta *array, int len, char *lugar)
 {
-    int i;
+
     int retorno = -1;
+    /*int i;
+    char auxLug[30];
+
     if (array!=NULL && len>0 && lugar!=NULL)
     {
+
         for(i=0; i<len; i++)
         {
-            if(array[i].lugar==lugar)
+            if(array[i].lugar==0)
             {
                 retorno=i;
                 break;
             }
         }
     }
-
+    */
     return retorno;
 }
 
@@ -268,14 +206,17 @@ int inf_orquesta_listarLugar(Orquesta array[], int size)
     int retorno=-1;
     int i;
     char tipo[30];
+    char auxLugar[50];
+
     if(array!=NULL && size>=0)
     {
+
+        getString ("Ingrese lugar de orquesta a buscar :","Id invalido",1,30,1,auxLugar);
         for(i=0;i<size;i++)
         {
-            if(array[i].isEmpty==1)
-                continue;
-            else{
-
+            if(!array[i].isEmpty &&  strcmp(array[i].lugar,auxLugar) == 0)
+                {
+                //inf_orquesta_buscarPorLugar(array,size,tipo);
                 orquesta_tipo(array[i],tipo);
                 printf("\n ID: %d\n lugar : %s \ntipo : %s ",
                       array[i].idOrquesta,array[i].lugar,tipo);
@@ -312,3 +253,58 @@ int inf_musicos_InstrumentosPorOrquesta(Musicos Marray[],int Msize,Instrumentos 
 
     return 0;
 }
+
+int inf_orquestasCompletas(Orquesta Oarray[],int Osize,Musicos Marray[], int Msize, Instrumentos Iarray[],int Isize)
+{
+    int i;
+    int j;
+    int k;
+    int contadorCuerdas;
+    int contadorVientos;
+    int contadorPercusion;
+
+        for(i=0;i<Osize;i++)
+        {
+            if (!Oarray[i].isEmpty){
+                contadorCuerdas = 0;
+                contadorPercusion = 0;
+                contadorVientos = 0;
+
+                for(j=0;j<Msize;j++){
+                    if(!Marray[j].isEmpty && Oarray[i].idOrquesta == Marray[j].idOrquesta){
+                        for(k=0;k<Isize;k++){
+                            if(!Iarray[k].isEmpty && Iarray[k].idInstrumentos == Marray[j].idInstrumento){
+                                switch(Iarray[k].tipo){
+                                    // tipo:\n1 Cuerdas : \n2 Viento-Madera : \n3 Viento-Metal : \n4 Percusion "
+
+                                    case 1: //CUERDAS
+                                        contadorCuerdas += 1;
+                                        break;
+                                    case 2: //Vientos
+                                        contadorVientos += 1;
+                                        break;
+                                    case 3: //Vientos
+                                        contadorVientos += 1;
+                                        break;
+                                    case 4:
+                                        contadorPercusion += 1;
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                printf("\nOrquesta %d tiene %d cuerdas, %d vientos y %d Percuison",Oarray[i].idOrquesta,contadorCuerdas,contadorVientos,contadorPercusion);
+
+              /*  if(contadorCuerdas>=4 && contadorVientos >= 4 && contadorPercusion >= 1){
+                    printf("\n ID: %d - nombre: %s - Lugar : %s - Tipo : %d \n",
+                    Oarray[i].idOrquesta,Oarray[i].nombre,Oarray[i].lugar,Oarray[i].tipo);
+                }*/
+            }
+        }
+    return 0;
+
+
+}
+
