@@ -40,6 +40,7 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc) (void*));
 LinkedList* ll_reduce(LinkedList* this, int (*pFunc) (void*));
 int ll_map(LinkedList* this, int (*pFunc)(void*));
 int ll_count(LinkedList* this, int (*pFunc)(void*));
-
+float ll_acumuladorFloat(LinkedList* this, float (*pFunc)(void*));
+int ll_acumuladorInt(LinkedList* this, int (*pFunc)(void*));
 
 #endif // LINKEDLIST_H_INCLUDED
