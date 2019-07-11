@@ -3,22 +3,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Linkedlist.h"
-#include "Venta.h"
+#include "llamada.h"
 
-int parser_VentaFromText(FILE* pFile , LinkedList* pArrayListVenta)
+int parser_LlamadaFromText(FILE* pFile , LinkedList* pArrayListLlamada)
 {
     int retorno=-1;
     char auxId[500];
     char auxFecha[500];
-    char auxTipo[500];
-    char auxCantidad[500];
-    char auxImporte[4096];
-    char auxCuit[4096];
+    char auxCliente[500];
+    char auxidProblema[500];
+    char solucion[4096];
     int flag=0;
 
-    Venta* pAuxVenta;
+    Llamada* pAuxLlamada;
 
-    if (pFile!=NULL && pArrayListVenta!=NULL)
+    if (pFile!=NULL && pArrayListLlamada!=NULL)
     {
         while (!feof(pFile))
         {
@@ -28,14 +27,14 @@ int parser_VentaFromText(FILE* pFile , LinkedList* pArrayListVenta)
                 continue;
             }
 
-            fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^\n]\n",auxId,auxFecha,auxTipo,auxCantidad,auxImporte,auxCuit);
+            fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^\n]\n",auxId,auxFecha,auxCliente,auxidProblema,solucion);
 
 
             //printf ("ID: %s \n",auxId);
-            pAuxVenta = Venta_newParametros(auxId,auxFecha,auxTipo,auxCantidad,auxImporte,auxCuit);
-            if (pAuxVenta !=NULL)
+            pAuxLlamada = llamada_newParametros(auxId,auxFecha,auxCliente,auxidProblema,solucion);
+            if (pAuxLlamada !=NULL)
             {
-                ll_add(pArrayListVenta,pAuxVenta);
+                ll_add(pArrayListLlamada,pAuxLlamada);
                 retorno=0;
             }
         }

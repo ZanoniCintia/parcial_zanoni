@@ -196,3 +196,75 @@
 	<stdio.h>
 	<stdlib.h>
 
+1562887525 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Controller.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Linkedlist.h"
+	"llamada.h"
+	"parser.h"
+	"funciones.h"
+	"Controller.h"
+
+1562880341 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Linkedlist.h
+
+1562887825 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/llamada.h
+
+1562887648 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/parser.h
+
+1562880341 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/funciones.h
+
+1562887225 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Controller.h
+
+1562880341 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/funciones.c
+	"validaciones.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+
+1562880341 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/validaciones.h
+
+1562880341 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Linkedlist.h"
+
+1562887880 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/llamada.c
+	"llamada.h"
+	"validaciones.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1562886892 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/main.c
+	<stdio.h>
+	<stdlib.h>
+	"Linkedlist.h"
+	"Controller.h"
+	"llamada.h"
+	"funciones.h"
+
+1562885252 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"Linkedlist.h"
+	"llamada.h"
+
+1562880341 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/validaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdio_ext.h>
+	"validaciones.h"
+
+1562880341 source:/home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Venta.c
+	"Venta.h"
+	"validaciones.h"
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1562880341 /home/alumno/zanoni/parcial_zanoni/cintiaParcial/Parcialzanoni/Venta.h
+

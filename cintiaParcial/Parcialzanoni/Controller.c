@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Linkedlist.h"
-#include "Venta.h"
+#include "llamada.h"
 #include "parser.h"
 #include "funciones.h"
 #include "Controller.h"
@@ -12,23 +12,23 @@
 #define SORT_DOWN 0
 #define SORT_UP 1
 
-int controller_loadFromText(char* path , LinkedList* pArrayListVenta)
+int controller_loadFromText(char* path , LinkedList* pArrayListLlamada)
 {
     int retorno=-1;
 
-    FILE* pFile = NULL;
+    FILE* pFile; //= NULL;
 
-    if (path!=NULL && pArrayListVenta!=NULL)
+    if (path!=NULL && pArrayListLlamada!=NULL)
     {
-        pFile = fopen (path, "r");
+        pFile = fopen (path, "w");
 
                 if (pFile!=NULL)
                 {
-                    ll_clear(pArrayListVenta);
-                    if (!parser_VentaFromText(pFile,pArrayListVenta))
+                    ll_clear(pArrayListLlamada);
+                    if (!parser_LlamadaFromText(pFile,pArrayListLlamada))
                     {
                         retorno=0;
-                        printf ("Carga Venta ok.\n");
+                        printf ("Carga Llamada ok.\n");
                     }
                 }
             //}
@@ -39,35 +39,34 @@ int controller_loadFromText(char* path , LinkedList* pArrayListVenta)
 
 
 
-int controller_ListVenta(LinkedList* pArrayListVenta)
+int controller_ListLlamada(LinkedList* pArrayListLlamada)
 {
     int retorno=-1;
-    Venta* pVenta;
+    Llamada* pLlamada;
     int auxId;
     char bufferFecha[1000];
-    char bufferCuit[500];
-    int auxCantidad;
-    char bufferTipo[4000];
-    float bufferImporte;
+    //char bufferCliente[500];
+    int auxCliente;
+    int auxIdProblema;
+    char bufferSolucion[500];
     int length;
     int i;
 
-    if (pArrayListVenta!=NULL)
+    if (pArrayListLlamada!=NULL)
     {
-        length=ll_len(pArrayListVenta);
+        length=ll_len(pArrayListLlamada);
         for (i=0;i<length;i++)
         {
-            pVenta = ll_get(pArrayListVenta,i);
-            if (pVenta!=NULL)
+            pLlamada = ll_get(pArrayListLlamada,i);
+            if (pLlamada!=NULL)
             {
-                if (!Venta_getId(pVenta,&auxId) &&
-                    !Venta_getFecha(pVenta,bufferFecha) &&
-                !Venta_gettipo(pVenta, bufferTipo) &&
-                !Venta_getCantidad(pVenta,&auxCantidad) &&
-                !Venta_getImporte(pVenta,&bufferImporte) &&
-                !Venta_getCuit(pVenta,bufferCuit))
+                if (!Llamada_getId(pLlamada,&auxId) &&
+                    !Llamada_getFecha(pLlamada,bufferFecha) &&
+                    !Llamada_getNumeroCliente(pLlamada, &auxCliente) &&
+                    !Llamada_getIdProblema(pLlamada,&auxIdProblema) &&
+                    !Llamada_getSolucion(pLlamada,&bufferSolucion))
                 {
-                    printf("ID:%d Fecha:%s Tipo:%s Cantidad:%d Importe:%.2f Cuit: %s \n",auxId,bufferFecha, bufferTipo, auxCantidad, bufferImporte,bufferCuit);
+                    printf("ID:%d Fecha:%s Numero cliente:%d ID problema:%d Solucion:%s  \n",auxId,bufferFecha, auxCliente, auxIdProblema, bufferSolucion);
                 }
             }
         }
@@ -76,13 +75,17 @@ int controller_ListVenta(LinkedList* pArrayListVenta)
     return retorno;
 }
 
-int controller_saveAsTextInformes(char* path , LinkedList* pArrayListVenta)
+int controller_saveAsText(char* path , LinkedList* pArrayListLlamada)
 {
     int retorno = -1;
-    int totalPolaroid=0;
-    int totalFotos=0;
-    int ventasMayor150=0;
-    int ventasMayor300=0;
+    Llamada* pLlamada;
+    //FILE* pFile;
+    int i;
+    char solucion[51];
+    char fecha[51];
+    int numeroCliente;
+    int idProblema;
+    int idLlamada;
     //int totalpolaroid=0;
 
     //LinkedList* Polaroid= ll_newLinkedList();
@@ -90,27 +93,34 @@ int controller_saveAsTextInformes(char* path , LinkedList* pArrayListVenta)
 
     FILE *pFile = NULL;
 
-    if(path != NULL && pArrayListVenta != NULL)
+    if(path != NULL && pArrayListLlamada != NULL)
     {
         pFile = fopen(path, "w");
         if(pFile != NULL)
         {
-            totalFotos=cantidadFotos(pArrayListVenta);
+              if(path != NULL && pArrayListLlamada != NULL)
+    {
+        pFile = fopen(path,"w");
+        if(pFile != NULL)
+        {
+            for(i=0;i<ll_len(pArrayListLlamada);i++)
+            {
+                pLlamada = ll_get(pArrayListLlamada,i);
+                if(pLlamada != NULL)
+                {
+                    Llamada_getId(pLlamada,&idLlamada);
+                    Llamada_getFecha(pLlamada,fecha);
+                    Llamada_getNumeroCliente(pLlamada, &numeroCliente);
+                    Llamada_getIdProblema(pLlamada,&idProblema);
+                    Llamada_getSolucion(pLlamada,solucion);
+                    fprintf(pFile,"%d,%s,%d,%d,%s\n",idLlamada,fecha,numeroCliente,idProblema,solucion);
+                }
+            }
+            retorno = 0;
+            fclose(pFile);
+        }
 
-            ventasMayor150=ll_count(pArrayListVenta,montoMayor150);
-            ventasMayor300=ll_count(pArrayListVenta,montoMayor300);
-            totalPolaroid=ll_count(pArrayListVenta,PolaroidReveladas);
-            //totalpolaroid=cantidadPolaroid(pArrayListVenta);
-
-            //printf ("Total polaroid: %d",Polaroid);
-            fprintf(pFile, "*****************************\nInforme de Ventas\n*****************************\n");
-            fprintf(pFile, "- Cantidad Total de fotos: %d\n", totalFotos);
-            fprintf(pFile, "- Cantidad de ventas por un monto mayor a $150: %d \n",ventasMayor150);
-            fprintf(pFile, "- Cantidad de ventas por un monto mayor a $300: %d \n",ventasMayor300);
-            fprintf(pFile, "- Cantidad de polaroids: %d\n", totalPolaroid);
-            //fprintf(pFile, "- Importe promedio por Entrega: %.2f\n", promedioPorEntrega);
-            fprintf(pFile, "*****************************");
-
+    }                                                                                   //totalFotos=cantidadFotos(pArrayListVenta);
             retorno = 0;
         }
         if (retorno==0)
@@ -122,8 +132,38 @@ int controller_saveAsTextInformes(char* path , LinkedList* pArrayListVenta)
     }
     return retorno;
 }
+                                                                                                //ventasMayor150=ll_count(pArrayListVenta,montoMayor150);
+ int controller_problemas(void* p)
+{
+    int problemas;
+    int retorno = 0;
+    if(p!=NULL)
+    {
+        Llamada_getIdProblema(p,&problemas);
+        if(problemas<=5)
+        {
+            retorno = 1;
 
-int cantidadFotos(LinkedList* pArrayList)
+        }
+    }
+
+    return retorno;
+
+}                                                                                               //ventasMayor300=ll_count(pArrayListVenta,montoMayor300);
+                                                                                                //totalPolaroid=ll_count(pArrayListVenta,PolaroidReveladas);
+                                                                                                //totalpolaroid=cantidadPolaroid(pArrayListVenta);
+
+                                                                                                //printf ("Total polaroid: %d",Polaroid);
+                                                                                                //fprintf(pFile, "*****************************\nInforme de Ventas\n*****************************\n");
+                                                                                                //fprintf(pFile, "- Cantidad Total de fotos: %d\n", totalFotos);
+                                                                                                //fprintf(pFile, "- Cantidad de ventas por un monto mayor a $150: %d \n",ventasMayor150);
+                                                                                                //fprintf(pFile, "- Cantidad de ventas por un monto mayor a $300: %d \n",ventasMayor300);
+                                                                                                //fprintf(pFile, "- Cantidad de polaroids: %d\n", totalPolaroid);
+                                                                                                //fprintf(pFile, "- Importe promedio por Entrega: %.2f\n", promedioPorEntrega);
+                                                                                                //fprintf(pFile, "*****************************
+
+
+/*int cantidadFotos(LinkedList* pArrayList)
 {
     int retorno=-1;
     int i;
@@ -190,9 +230,9 @@ int montoMayor300(void* p)
     }
 
     return retorno;
-}
+}*/
 
-int PolaroidReveladas(void* p)
+/*int PolaroidReveladas(void* p)
 {
     int retorno = 0;
     Venta* auxVenta = (Venta*)p;
@@ -227,5 +267,5 @@ int cantidadPolaroid(LinkedList* arrayListVentas)
         retorno=acumulador;
     }
     return retorno;
-}
+}*/
 #endif // CONTROLLER_C_INCLUDED
